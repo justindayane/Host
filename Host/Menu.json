@@ -1,0 +1,122 @@
+[
+  {
+    "id": "d5f5e2c1-3e4b-4f71-8c3b-1a5d9c3f6a01",
+    "name": "Oatmeal",
+    "nutrition": "150 kcal | 5 g P | 27 g C | 2 g F",
+    "mealTime": ["breakfast"],
+    "dishType": ["main"],
+    "isSpecial": false,
+    "diet": ["cardiac", "renal", "regular"]
+  },
+
+  {
+    "id": "9a2b1c5d-7f3e-4e8c-a1d4-6f4d8b2e3f09",
+    "name": "Caesar Salad",
+    "nutrition": "350 kcal | 12 g P | 20 g C | 25 g F",
+    "mealTime": ["lunch", "dinner"],
+    "dishType": ["side"],
+    "isSpecial": false,
+    "diet": ["cardiac", "regular"]
+  },
+
+  {
+    "id": "1b3e8c42-2a57-4f6c-9b4f-3c2e1d5f0a7b",
+    "name": "Ginger Ale",
+    "nutrition": "0 kcal | 0 g P | 0 g C | 0 g F",
+    "mealTime": ["breakfast", "lunch", "dinner"],
+    "dishType": ["beverage"],
+    "isSpecial": false,
+    "diet": ["regular"]
+  },
+
+  {
+    "id": "6e1d2f3a-9b4c-8a7e-1d2f-3c4b5a6d7e8f",
+    "name": "Grilled Chicken",
+    "nutrition": "280 kcal | 35 g P | 0 g C | 12 g F",
+    "mealTime": ["lunch"],
+    "dishType": ["main"],
+    "isSpecial": true,
+    "diet": ["cardiac", "regular"]
+  },
+
+  {
+    "id": "4c7e9b2f-3a1d-5f6e-8b4c-2a1d9f3e0b7a",
+    "name": "Steamed Broccoli",
+    "nutrition": "55 kcal | 3 g P | 10 g C | 2 g F",
+    "mealTime": ["lunch"],
+    "dishType": ["side"],
+    "isSpecial": false,
+    "diet": ["fiberRest", "regular"]
+  },
+
+  {
+    "id": "f3a4b2c1-9d8e-7f6a-5b4c-3d2e1f0a9b8c",
+    "name": "Fruit Cup",
+    "nutrition": "90 kcal | 1 g P | 20 g C | 0.5 g F",
+    "mealTime": ["breakfast"],
+    "dishType": ["side"],
+    "isSpecial": true,
+    "diet": ["renal", "regular"]
+  },
+
+  {
+    "id": "0a1b2c3d-4e5f-6a7b-8c9d-0e1f2a3b4c5d",
+    "name": "Roast Turkey",
+    "nutrition": "210 kcal | 8 g P | 30 g C | 5 g F",
+    "mealTime": ["dinner"],
+    "dishType": ["main"],
+    "isSpecial": false,
+    "diet": ["carbControl", "regular"]
+  },
+
+  {
+    "id": "b8c7d6e5-4f3a-2b1c-0d9e-8f7a6b5c4d3e",
+    "name": "Smoothie",
+    "nutrition": "120 kcal | 1 g P | 28 g C | 0 g F",
+    "mealTime": ["breakfast"],
+    "dishType": ["beverage"],
+    "isSpecial": true,
+    "diet": ["fluidRest", "regular"]
+  },
+
+  {
+    "id": "c9d8e7f6-5b4a-3c2d-1e0f-9a8b7c6d5e4f",
+    "name": "Pasta",
+    "nutrition": "400 kcal | 12 g P | 75 g C | 8 g F",
+    "mealTime": ["dinner"],
+    "dishType": ["main"],
+    "isSpecial": false,
+    "diet": ["regular"]
+  },
+
+  {
+    "id": "a1b2c3d4-5e6f-7a8b-9c0d-1e2f3a4b5c6d",
+    "name": "Vegetable Soup",
+    "nutrition": "180 kcal | 6 g P | 30 g C | 4 g F",
+    "mealTime": ["lunch"],
+    "dishType": ["main"],
+    "isSpecial": false,
+    "diet": ["fluidRest", "fiberRest", "regular"]
+  },
+
+  {
+    "id": "e7f6d5c4-3b2a-1f0e-9d8c-7b6a5f4e3d2c",
+    "name": "Yogurt",
+    "nutrition": "110 kcal | 4 g P | 16 g C | 0.5 g F",
+    "mealTime": ["breakfast"],
+    "dishType": ["side"],
+    "isSpecial": true,
+    "diet": ["renal", "regular"]
+  },
+
+  {
+    "id": "b2c3d4e5-f6a7-8b9c-0d1e-2f3a4b5c6d7e",
+    "name": "Chicken Tenders",
+    "nutrition": "210 kcal | 8 g P | 30 g C | 5 g F",
+    "mealTime": ["dinner", "lunch"],
+    "dishType": ["main"],
+    "isSpecial": false,
+    "diet": ["carbControl", "regular"]
+  }
+]
+

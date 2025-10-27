@@ -7,9 +7,62 @@
 
 import SwiftUI
 
-struct Meal: Identifiable {
-    var id =  UUID()
+// ---------- NEW IMPLEMENTATION --------
+
+enum DishType: String, Codable, CaseIterable, Identifiable {
+    case main
+    case side
+    case beverage
+    
+    var id: Self { self }
+}
+
+enum MealTime: String, Codable, CaseIterable, Identifiable {
+    case breakfast
+    case lunch
+    case dinner
+    var id: Self { self }
+}
+
+enum Diet: String, Codable, CaseIterable, Identifiable {
+    case cardiac
+    case renal
+    case carbControl
+    case fluidRest
+    case fiberRest
+    case regular
+    
+    var id: Self { self }
+    
+    var title: String {
+        switch self {
+        case .carbControl:
+            return "Carb Control"
+        case .renal:
+            return "Renal"
+        case .cardiac:
+            return "Cardiac"
+        case .fluidRest:
+            return "Fluid Rest"
+        case .fiberRest:
+            return "Fiber Rest"
+        case .regular:
+            return "Regular"
+        }
+    }
+}
+
+struct MenuItem: Identifiable, Codable {
+    var id: UUID = UUID()
     var name: String
-    var email: String
-    var phoneNumber: String
+    var nutrition: String
+    var mealTime: [MealTime]
+    var dishType: [DishType]
+    var isSpecial: Bool = false
+    var diet: [Diet] = []
+    
+    // The idea is to have this computed property help identify meals that apply to all diet but the approach is not accurate yet. It will require looking into the entire "Diet" Logic.
+//    var appliesToAllDiets: Bool {
+//        return diet.isEmpty
+//    }
 }

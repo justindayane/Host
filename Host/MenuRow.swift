@@ -8,11 +8,30 @@
 import SwiftUI
 
 struct MenuRow: View {
+    let item: MenuItem
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        HStack(spacing: 12){
+            if item.isSpecial {
+                Image(systemName: "star.fill")
+                    .foregroundColor(.yellow)
+            }
+            VStack(alignment: .leading, spacing: 2) {
+                Text(item.name)
+                    .font(.headline)
+                
+                Text(item.nutrition)
+                    .font(.subheadline)
+                    .foregroundColor(.secondary)
+            }
+            
+            Spacer()
+        }
+        
+        .padding(.vertical, 4)
     }
 }
 
-#Preview {
-    MenuRow()
-}
+//#Preview {
+//    MenuRow()
+//}

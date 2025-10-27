@@ -6,39 +6,102 @@
 //
 
 import SwiftUI
+import Combine
 
+@MainActor
 class MenuViewModel: ObservableObject {
-    @Published var people : [Meal] = []
+    // MARK: - Public API
+    @Published private(set) var menuItems: [MenuItem] = []
+    @Published var selectedDiet: Diet = .regular
+    @Published var expandedGroups: Set<String> = []
     
-    init() {
-        addPeople()
+    // MARK: - Dependencies (needed for the new approach allowing writing)
+    private let store: MenuItemStore
+    private var cancellables = Set<AnyCancellable>()
+    
+    
+    // MARK: – Derived data
+    /// All items that match the selected diet
+    var filteredItems: [MenuItem] {
+        menuItems.filter {
+            $0.diet.contains(selectedDiet)
+        }
     }
     
-    func addPeople() {
-        people = peopleData
+    /// specials only
+    var specialtems: [MenuItem] {
+        filteredItems.filter { $0.isSpecial }
     }
     
-    func shuffleOrder() {
-        people.shuffle()
+    /// Grouping by meal -> dish -> item
+    var grouped: [MealTime: [DishType: [MenuItem]]] {
+        var out: [MealTime: [DishType: [MenuItem]]] = [:]
+        
+        for meal in MealTime.allCases {
+            var dishDict: [DishType: [MenuItem]] = [:]
+            for dish in DishType.allCases {
+                dishDict[dish] = filteredItems.filter {
+                    $0.mealTime.contains(meal) && $0.dishType.contains(dish)
+                }
+            }
+            out[meal] = dishDict
+        }
+        return out
     }
     
-    func reverseOrder() {
-        people.reverse()
+    // MARK: – Init & Data Loading
+    
+    private let provider = MenuDataProvider()
+    
+//    init() {
+//        Task {
+//            await loadData()
+//        }
+//    }
+//
+    // New Init
+    init(store: MenuItemStore = MenuItemStore()) {
+        self.store = store
+        
+        store.$items
+            .receive(on: DispatchQueue.main)
+            .assign(to: &$menuItems)
     }
     
-    func removeLast() {
-        people.removeLast()
+    @MainActor
+    private func loadData() async {
+        do {
+            self.menuItems = try await provider.fetchAll()
+        } catch {
+            print("[MenuViewModel] failed to load data from provider: \(error.localizedDescription)")
+        }
     }
     
-    func removeFirst() {
-        people.removeFirst()
+    // MARK: - Helpers for UI
+    func toggleExpanded(meal: MealTime, dish: DishType) {
+        let key = "\(meal.rawValue)_\(dish.rawValue)"
+        if expandedGroups.contains(key) {
+            expandedGroups.remove(key)
+        } else {
+            expandedGroups.insert(key)
+        }
+    }
+    
+    func isExpanded(meal: MealTime, dish: DishType) -> Bool {
+        let key = "\(meal.rawValue)_\(dish.rawValue)"
+        return expandedGroups.contains(key)
+    }
+    
+    // MARK: -Add/Delete
+    func addItem(name: String, nutrition: String, mealTime: [MealTime], dishType: [DishType], isSpecial: Bool, diet: [Diet]) {
+        let newItem = MenuItem(id: UUID(), name: name, nutrition: nutrition, mealTime: mealTime, dishType: dishType, isSpecial: isSpecial, diet: diet)
+        
+        store.add(newItem)
+    }
+    
+    func deleteItem(_ item: MenuItem) {
+        store.delete(item)
     }
 }
 
-let peopleData = [
-    Meal(name: "Jon Snow", email: "jon@email.com", phoneNumber: "555-5555"),
-    Meal(name: "Rami Arias", email: "Rami@email.com", phoneNumber: "555-5555"),
-    Meal(name: "Amine Gbadamassi", email: "Amine@email.com", phoneNumber: "555-5555"),
-    Meal(name: "Justin Dayane", email: "justin@email.com", phoneNumber: "555-5555"),
-    Meal(name: "Damaris Dominguez", email: "damaris@email.com", phoneNumber: "555-5555")
-]
+
