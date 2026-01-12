@@ -1,0 +1,429 @@
+{
+    "meta": {
+        "cycle_length_weeks": 2,
+        "start_date": "202-01-05"
+    },
+    "weeks": [
+        {
+            "week_number": 1,
+            "days": {
+                "sunday": {
+                    "meals": {
+                        "breakfast": [
+                            { "name": "Omelet", "category": "main" },
+                            { "name": "Home Fries", "category": "side" },
+                            { "name": "Turkey Sausage Patty", "category": "side" },
+                            { "name": "Cheerios", "category": "cereal" },
+                            { "name": "Vanilla Cream of Wheat", "category": "alt_cereal" },
+                            { "name": "No Alt Cups & Bowls", "category": "alt_cups&bowls" }
+                        ],
+                        "lunch": [
+                            { "name": "Cream of Mushroom", "category": "soup" },
+                            { "name": "BBQ Chicken", "category": "main" },
+                            { "name": "California Veg Blend", "category": "veggie" },
+                            { "name": "Coconut Rice & Beans", "category": "starch" },
+                            { "name": "Vegan Korean BBQ Chikn", "category": "alt_main" },
+                            { "name": "Sauteed Snow Peas", "category": "alt_veggie" },
+                            { "name": "Brown Rice", "category": "alt_starch" }
+                        ],
+                        "dinner": [
+                            { "name": "Swedish Meatballs", "category": "main" },
+                            { "name": "Roasted Carrots", "category": "veggie" },
+                            { "name": "Mashed Potatoes", "category": "starch" },
+                            { "name": "Indian Dahl", "category": "alt_main" },
+                            { "name": "NO ALT VEGGIE", "category": "alt_veggie" },
+                            { "name": "Jasmine Rice", "category": "alt_starch" }
+                        ]
+                    }
+                },
+                "monday": {
+                    "meals": {
+                        "breakfast": [
+                            { "name": "Texas French Toast", "category": "main" },
+                            { "name": "Home Fries", "category": "side" },
+                            { "name": "Chicken Apple Sausage", "category": "side" },
+                            { "name": "Raisin Brain", "category": "cereal" },
+                            { "name": "Apple Cinnamon Oatmeal", "category": "alt_cereal" }
+                        ],
+                        "lunch": [
+                            { "name": "Minestrone", "category": "soup" },
+                            { "name": "Chicken Noodle", "category": "soup" },
+                            { "name": "Rigatoni (Turkey) Bolognese", "category": "main" },
+                            { "name": "Sauteed Broccoli", "category": "veggie" },
+                            { "name": "NONE", "category": "starch" },
+                            { "name": "Potato Crusted Tilapia in Lemon Caper Sauce", "category": "alt_main" },
+                            { "name": "Roasted Brussel Sprouts", "category": "alt_veggie" },
+                            { "name": "Herb Quinoa", "category": "alt_starch" }
+                        ],
+                        "dinner": [
+                            { "name": "Lemon Oregano Baked Chicken", "category": "main" },
+                            { "name": "Asian Veg Blend", "category": "veggie" },
+                            { "name": "Roasted Lemon Potatoes", "category": "starch" },
+                            { "name": "Singapore Noodles", "category": "alt_main" },
+                            { "name": "NONE", "category": "alt_veggie" },
+                            { "name": "NONE", "category": "alt_starch" }
+                        ]
+                    }
+                },
+                "tuesday": {
+                    "meals": {
+                        "breakfast": [
+                            { "name": "Veggie Egg Bites", "category": "main" },
+                            { "name": "Mangu", "category": "side" },
+                            { "name": "Pork Sausage Patty", "category": "side" },
+                            { "name": "Apple Cinnamon Oatmeal", "category": "cereal" },
+                            { "name": "Vanilla Cream of Wheat", "category": "alt_cereal" },
+                            { "name": "Chia & Fruit", "category": "alt_cups&bowls" }
+                        ],
+                        "lunch": [
+                            { "name": "Vegetable Barley", "category": "soup" },
+                            { "name": "Eggplant Parmesan", "category": "main" },
+                            { "name": "Sugar Snap Peas", "category": "veggie" },
+                            { "name": "Pasta Marinara", "category": "starch" },
+                            { "name": "Mac & Cheese", "category": "alt_main" },
+                            { "name": "Cesar Side Salad", "category": "alt_veggie" },
+                            { "name": "NONE", "category": "alt_starch" }
+                        ],
+                        "dinner": [
+                            { "name": "Braised Beef Short Ribs with Demi Glaze", "category": "main" },
+                            { "name": "NONE", "category": "veggie" },
+                            { "name": "Roasted Root Vegetables", "category": "starch" },
+                            { "name": "Miso Salmon", "category": "alt_main" },
+                            { "name": "Sugar Snap Peas", "category": "alt_veggie" },
+                            { "name": "Brown Rice", "category": "alt_starch" }
+                        ]
+                    }
+                },
+                "wednesday": {
+                    "meals": {
+                        "breakfast": [
+                            { "name": "Butter Milk Pancake", "category": "main" },
+                            { "name": "Chicken Apple Sausage", "category": "side" },
+                            { "name": "Cheerios", "category": "cereal" },
+                            { "name": "Rice Krispies", "category": "alt_cereal" },
+                            { "name": "Plain Oatmeal", "category": "alt_cups&bowls" }
+                        ],
+                        "lunch": [
+                            { "name": "Turkish Red Lentil Soup", "category": "soup" },
+                            { "name": "Chicken Noodle Soup", "category": "soup" },
+                            { "name": "Mediterranean Chicken", "category": "main" },
+                            { "name": "Cut Green Beans", "category": "veggie" },
+                            { "name": "Herb Couscous", "category": "starch" },
+                            { "name": "Pasta Marinara", "category": "alt_main" },
+                            { "name": "Spring Mix Side Salad", "category": "alt_veggie" },
+                            { "name": "NONE", "category": "alt_starch" }
+                        ],
+                        "dinner": [
+                            { "name": "Chicken Francese", "category": "main" },
+                            { "name": "Roasted Carrots", "category": "veggie" },
+                            { "name": "Yellow Rice", "category": "starch" },
+                            { "name": "Vegan Sweet & Sour Chikn", "category": "alt_main" },
+                            { "name": "Asian Veggie Blend", "category": "alt_veggie" },
+                            { "name": "Jasmine Rice", "category": "alt_starch" }
+                        ]
+                    }
+                },
+                "thursday": {
+                    "meals": {
+                        "breakfast": [
+                            { "name": "Spanish Style Baked Eggs", "category": "main" },
+                            { "name": "Hash Brown", "category": "side" },
+                            { "name": "Chorizo", "category": "side" },
+                            { "name": "Raisin Bran", "category": "cereal" },
+                            { "name": "Vanilla Cream of Wheat", "category": "alt_cereal" },
+                            { "name": "No Alt Cups & Bowls", "category": "alt_cups&bowls" }
+                        ],
+                        "lunch": [
+                            { "name": "Cream of Mushroom", "category": "soup" },
+                            { "name": "Turkish Red Lentil", "category": "soup" },
+                            { "name": "Rigatoni in Vodka Sauce", "category": "main" },
+                            { "name": "Sauteed Broccoli", "category": "veggie" },
+                            { "name": "NONE", "category": "starch" },
+                            { "name": "Cuban Sandwish", "category": "alt_main" },
+                            { "name": "NONE", "category": "alt_veggie" },
+                            { "name": "Russian Potato Salad", "category": "alt_starch" }
+                        ],
+                        "dinner": [
+                            { "name": "Roasted Turkey", "category": "main" },
+                            { "name": "Roasted Brussels", "category": "veggie" },
+                            { "name": "Sweet Potato Mash", "category": "starch" },
+                            { "name": "Chickpeas & Vegetable Stew", "category": "alt_main" },
+                            { "name": "NONE", "category": "alt_veggie" },
+                            { "name": "Herb Couscous", "category": "alt_starch" }
+                        ]
+                    }
+                },
+                "friday": {
+                    "meals": {
+                        "breakfast": [
+                            { "name": "Belian Waffle", "category": "main" },
+                            { "name": "NONE", "category": "side" },
+                            { "name": "Chicken Apple Sausage", "category": "side" },
+                            { "name": "Apple Cinnamon Oatmeal", "category": "cereal" },
+                            { "name": "NONE", "category": "alt_cereal" },
+                            { "name": "Coconuts Overnight Oats", "category": "alt_cups&bowls" }
+                        ],
+                        "lunch": [
+                            { "name": "Chicken Noodle", "category": "soup" },
+                            { "name": "Pasta with Meatballs", "category": "main" },
+                            { "name": "Seasoned Green Beans", "category": "veggie" },
+                            { "name": "NONE", "category": "starch" },
+                            { "name": "Teriyaki Salmon", "category": "alt_main" },
+                            { "name": "NONE", "category": "alt_veggie" },
+                            { "name": "Brown Rice", "category": "alt_starch" }
+                        ],
+                        "dinner": [
+                            { "name": "Fish Tacos", "category": "main" },
+                            { "name": "NONE", "category": "veggie" },
+                            { "name": "Coconut Rice & Beans", "category": "starch" },
+                            { "name": "Vegan Korean BBQ Chikn", "category": "alt_main" },
+                            { "name": "Sauteed Snow Peas", "category": "alt_veggie" },
+                            { "name": "Brown Rice", "category": "alt_starch" }
+                        ]
+                    }
+                },
+                "saturday": {
+                    "meals": {
+                        "breakfast": [
+                            { "name": "Omelet", "category": "main" },
+                            { "name": "Home Fries", "category": "side" },
+                            { "name": "Turkey Sausage Patty", "category": "side" },
+                            { "name": "Cheerios", "category": "cereal" },
+                            { "name": "Rice Crispies", "category": "alt_cereal" },
+                            { "name": "Yogurt Parfait", "category": "alt_cups&bowls" }
+                        ],
+                        "lunch": [
+                            { "name": "Tomato Birsque", "category": "soup" },
+                            { "name": "Chicken Noodle", "category": "soup" },
+                            { "name": "Chicken Picata", "category": "main" },
+                            { "name": "California Veg Blend", "category": "veggie" },
+                            { "name": "Brown & Wild Rice Pilaf", "category": "starch" },
+                            { "name": "Meatball Hero", "category": "alt_main" },
+                            { "name": "Cesar Side Salad", "category": "alt_veggie" },
+                            { "name": "NONE", "category": "alt_starch" }
+                        ],
+                        "dinner": [
+                            { "name": "Roast Pork Tenderloin in Mushroom Sauce", "category": "main" },
+                            { "name": "Roasted Sweet Potato", "category": "veggie" },
+                            { "name": "NONE", "category": "starch" },
+                            { "name": "Grilled Mahi Mahi", "category": "alt_main" },
+                            { "name": "Sauteed Broccoli", "category": "alt_veggie" },
+                            { "name": "Jasmine Rice", "category": "alt_starch" }
+                        ]
+                    }
+                }
+            }
+        },
+        {
+            "week_number": 2,
+            "days": {
+                "sunday": {
+                    "meals": {
+                        "breakfast": [
+                            { "name": "Blueberry Filled Pancake", "category": "main" },
+                            { "name": "Fruit Cup", "category": "side" },
+                            { "name": "Chicken Apple Sausage", "category": "side" },
+                            { "name": "Raisin Bran", "category": "cereal" },
+                            { "name": "Vanilla Cream of Wheat", "category": "alt_cereal" },
+                            { "name": "No Alt Cups & Bowls", "category": "alt_cups&bowls" }
+                        ],
+                        "lunch": [
+                            { "name": "Cream of Mushroom", "category": "soup" },
+                            { "name": "Herb-Crusted Cod in Roasted Tomato-Lemon Sauce", "category": "main" },
+                            { "name": "Roasted Carrots", "category": "veggie" },
+                            { "name": "Herb Quinoa", "category": "starch" },
+                            { "name": "Chikn Parm Hero", "category": "alt_main" },
+                            { "name": "Spring Mix Side Salad", "category": "alt_veggie" },
+                            { "name": "NONE", "category": "alt_starch" }
+                        ],
+                        "dinner": [
+                            { "name": "Spanish Stewed Chicken", "category": "main" },
+                            { "name": "Sauteed Broccoli", "category": "veggie" },
+                            { "name": "Yellow Rice", "category": "starch" },
+                            { "name": "Cheese Burger", "category": "alt_main" },
+                            { "name": "L/T/P", "category": "alt_veggie" },
+                            { "name": "Chickpea Salad", "category": "alt_starch" }
+                        ]
+                    }
+                },
+                "monday": {
+                    "meals": {
+                        "breakfast": [
+                            { "name": "Veg/Cheese Quiche", "category": "main" },
+                            { "name": "NONE", "category": "side" },
+                            { "name": "Turkey Sausage Patty", "category": "side" },
+                            { "name": "Apple Cinnamon Oatmeal", "category": "cereal" },
+                            { "name": "Apple Cinnamon Oatmeal", "category": "alt_cereal" },
+                            { "name": "No Alt Cups & Bowls", "category": "alt_cups&bowls" }
+                        ],
+                        "lunch": [
+                            { "name": "Minestrone", "category": "soup" },
+                            { "name": "Chicken Noodle Soup", "category": "soup" },
+                            { "name": "Swedish Meetballs", "category": "main" },
+                            { "name": "Seasoned Green", "category": "veggie" },
+                            { "name": "Mashed Potato", "category": "starch" },
+                            { "name": "Mac & Cheese", "category": "alt_main" },
+                            { "name": "Season Green Beans", "category": "alt_veggie" },
+                            { "name": "NONE", "category": "alt_starch" }
+                        ],
+                        "dinner": [
+                            { "name": "Sancocho", "category": "main" },
+                            { "name": "NONE", "category": "veggie" },
+                            { "name": "Basmati Rice", "category": "starch" },
+                            { "name": "Spanish Stewed Beans with White Rice", "category": "alt_main" },
+                            { "name": "NONE", "category": "alt_veggie" },
+                            { "name": "Sweet Plantains", "category": "alt_starch" }
+                        ]
+                    }
+                },
+                "tuesday": {
+                    "meals": {
+                        "breakfast": [
+                            { "name": "Texas French Toast", "category": "main" },
+                            { "name": "NONE", "category": "side" },
+                            { "name": "Chicken Apple Sausage", "category": "side" },
+                            { "name": "Cheerios", "category": "cereal" },
+                            { "name": "Rice Krispies", "category": "alt_cereal" },
+                            { "name": "Chia & Fruit", "category": "alt_cups&bowls" }
+                        ],
+                        "lunch": [
+                            { "name": "Vegetable Barley", "category": "soup" },
+                            { "name": "Chicken Noodle", "category": "soup" },
+                            { "name": "Roast Pork Tenderloin", "category": "main" },
+                            { "name": "Roasted Cauliflower", "category": "veggie" },
+                            { "name": "Sweet Potato Mash", "category": "starch" },
+                            { "name": "Indian Dahl", "category": "alt_main" },
+                            { "name": "Sauteed Broccoli", "category": "alt_veggie" },
+                            { "name": "Jasmine Rice", "category": "alt_starch" }
+                        ],
+                        "dinner": [
+                            { "name": "Southweast Chikn with Corn Tortilla/Guac", "category": "main" },
+                            { "name": "NONE", "category": "veggie" },
+                            { "name": "Coconut Rice & Beans", "category": "starch" },
+                            { "name": "Rigatoni Bolognese", "category": "alt_main" },
+                            { "name": "Cesar Salad", "category": "alt_veggie" },
+                            { "name": "NONE", "category": "alt_starch" }
+                        ]
+                    }
+                },
+                "wednesday": {
+                    "meals": {
+                        "breakfast": [
+                            { "name": "Spanish Tortilla", "category": "main" },
+                            { "name": "Fruit Cup", "category": "side" },
+                            { "name": "Pork Sausage", "category": "side" },
+                            { "name": "Raisin Bran", "category": "cereal" },
+                            { "name": "Rice Chex", "category": "alt_cereal" },
+                            { "name": "Plain Oatmeal", "category": "alt_cups&bowls" }
+                        ],
+                        "lunch": [
+                            { "name": "Turkish Lentil Soup", "category": "soup" },
+                            { "name": "Chicken Noodle Soup", "category": "soup" },
+                            { "name": "Chicken (cutlet) Parmesan", "category": "main" },
+                            { "name": "Mixed Vegetables (Cali-Blend)", "category": "veggie" },
+                            { "name": "NONE", "category": "starch" },
+                            { "name": "Pasta Marinara (Rigatoni)", "category": "alt_main" },
+                            { "name": "Cesar Side Salad", "category": "alt_veggie" },
+                            { "name": "NONE", "category": "alt_starch" }
+                        ],
+                        "dinner": [
+                            { "name": "Braised Short Ribs with Demi Glaze", "category": "main" },
+                            { "name": "Roasted Brussel Sprouts", "category": "veggie" },
+                            { "name": "Mashed Potatoes", "category": "starch" },
+                            { "name": "Vegetable & Chickpea Stew", "category": "alt_main" },
+                            { "name": "NONE", "category": "alt_veggie" },
+                            { "name": "Brown Rice", "category": "alt_starch" }
+                        ]
+                    }
+                },
+                "thursday": {
+                    "meals": {
+                        "breakfast": [
+                            { "name": "Belgian Waffle", "category": "main" },
+                            { "name": "NONE", "category": "side" },
+                            { "name": "Chicken Apple Sausage", "category": "side" },
+                            { "name": "Apple Cinnamon Oatmeal", "category": "cereal" },
+                            { "name": "Vanilla Cream of Wheat", "category": "alt_cereal" },
+                            { "name": "No Alt Cups & Bowls", "category": "alt_cups&bowls" }
+                        ],
+                        "lunch": [
+                            { "name": "Cream of Mushroom", "category": "soup" },
+                            { "name": "Grilled Mahi Mahi", "category": "main" },
+                            { "name": "NONE", "category": "veggie" },
+                            { "name": "Roasted Root Vegetables", "category": "starch" },
+                            { "name": "Cuban Sandwich", "category": "alt_main" },
+                            { "name": "NONE", "category": "alt_veggie" },
+                            { "name": "Russian Potato Salad", "category": "alt_starch" }
+                        ],
+                        "dinner": [
+                            { "name": "Roast Turkey", "category": "main" },
+                            { "name": "Seasoned Green Beans", "category": "veggie" },
+                            { "name": "Roasted Sweet Potatoes", "category": "starch" },
+                            { "name": "Vermicelli Veg Stir Fry", "category": "alt_main" },
+                            { "name": "NO ALT VEGGIE", "category": "alt_veggie" },
+                            { "name": "NONE", "category": "alt_starch" }
+                        ]
+                    }
+                },
+                "friday": {
+                    "meals": {
+                        "breakfast": [
+                            { "name": "Tex-Mex Omelet (with Queso Sauce & Pico de gallo)", "category": "main" },
+                            { "name": "Home Fries", "category": "side" },
+                            { "name": "Turkey Sausage Patty", "category": "side" },
+                            { "name": "Cheerios", "category": "cereal" },
+                            { "name": "Rice Krispies", "category": "alt_cereal" },
+                            { "name": "Coconut Overnight Oats", "category": "alt_cups&bowls" }
+                        ],
+                        "lunch": [
+                            { "name": "Chicken Noodle Soup", "category": "soup" },
+                            { "name": "Chicken Francese", "category": "main" },
+                            { "name": "Sauteed Snow Peas & Peppers", "category": "veggie" },
+                            { "name": "Lemon Roasted Potatoes", "category": "starch" },
+                            { "name": "Cheese Burger", "category": "alt_main" },
+                            { "name": "LTP", "category": "alt_veggie" },
+                            { "name": "Chickpea Salad", "category": "alt_starch" }
+                        ],
+                        "dinner": [
+                            { "name": "Flounder Provencal", "category": "main" },
+                            { "name": "Sauteed Broccoli", "category": "veggie" },
+                            { "name": "Brown & Wild Rice Pilaf", "category": "starch" },
+                            { "name": "Rigatoni in Vodka Sauce", "category": "alt_main" },
+                            { "name": "Cesar Salad", "category": "alt_veggie" },
+                            { "name": "None", "category": "alt_starch" }
+                        ]
+                    }
+                },
+                "saturday": {
+                    "meals": {
+                        "breakfast": [
+                            { "name": "Blueberry Filled Pancakes", "category": "main" },
+                            { "name": "NONE", "category": "side" },
+                            { "name": "Chicken Apple Sausage", "category": "side" },
+                            { "name": "Raisin Bran", "category": "cereal" },
+                            { "name": "Rice Chex", "category": "alt_cereal" },
+                            { "name": "Yogurt Partfait", "category": "alt_cups&bowls" }
+                        ],
+                        "lunch": [
+                            { "name": "Tomato Bisque", "category": "soup" },
+                            { "name": "Sauteed Chicken in Garlic Sauce", "category": "main" },
+                            { "name": "Asian Veg Blend", "category": "veggie" },
+                            { "name": "Jasmine Rice", "category": "starch" },
+                            { "name": "Teriyaki Salmon", "category": "alt_main" },
+                            { "name": "Sugar Snap Peas", "category": "alt_veggie" },
+                            { "name": "Brown Rice", "category": "alt_starch" }
+                        ],
+                        "dinner": [
+                            { "name": "Beef & Root Vegertable Stew", "category": "main" },
+                            { "name": "NONE", "category": "veggie" },
+                            { "name": "Polenta", "category": "starch" },
+                            { "name": "Eggplant Parm", "category": "alt_main" },
+                            { "name": "Seasoned Green Beans", "category": "alt_veggie" },
+                            { "name": "Pasta Marinara (Orecchiete)", "category": "alt_starch" }
+                        ]
+                    }
+                }
+            }
+        }
+    ]
+}

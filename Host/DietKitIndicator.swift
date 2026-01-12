@@ -8,11 +8,21 @@
 import SwiftUI
 
 struct DietKitIndicator: View {
+    let diet: Diet
+    var size: CGFloat = 16
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        Circle()
+            .fill(diet.kitColor)
+            .frame(width: size, height: size)
+            .overlay(
+                Circle()
+                    .strokeBorder(Color.white, lineWidth: 1.5)
+            )
+            .shadow(color: .black.opacity(0.15), radius: 2, x: 0, y: 1)
     }
 }
 
 #Preview {
-    DietKitIndicator()
+    DietKitIndicator(diet: .renal, size: 32)
 }

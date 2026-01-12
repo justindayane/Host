@@ -24,7 +24,7 @@ class MenuViewModel: ObservableObject {
     /// All items that match the selected diet
     var filteredItems: [MenuItem] {
         menuItems.filter {
-            $0.diet.contains(selectedDiet)
+            $0.diets.contains(selectedDiet)
         }
     }
     
@@ -41,7 +41,7 @@ class MenuViewModel: ObservableObject {
             var dishDict: [DishType: [MenuItem]] = [:]
             for dish in DishType.allCases {
                 dishDict[dish] = filteredItems.filter {
-                    $0.mealTime.contains(meal) && $0.dishType.contains(dish)
+                    $0.mealTimes.contains(meal) && $0.dishType == dish
                 }
             }
             out[meal] = dishDict
@@ -93,8 +93,23 @@ class MenuViewModel: ObservableObject {
     }
     
     // MARK: -Add/Delete
-    func addItem(name: String, nutrition: String, mealTime: [MealTime], dishType: [DishType], isSpecial: Bool, diet: [Diet]) {
-        let newItem = MenuItem(id: UUID(), name: name, nutrition: nutrition, mealTime: mealTime, dishType: dishType, isSpecial: isSpecial, diet: diet)
+    func addItem(
+        name: String,
+        nutrition: String,
+        mealTime: [MealTime],
+        dishType: DishType,
+        isSpecial: Bool,
+        diet: [Diet]
+    ) {
+        let newItem = MenuItem(
+            id: UUID(),
+            name: name,
+            nutrition: nutrition,
+            mealTimes: mealTime,
+            dishType: dishType,
+            isSpecial: isSpecial,
+            diets: diet
+        )
         
         store.add(newItem)
     }
@@ -102,6 +117,8 @@ class MenuViewModel: ObservableObject {
     func deleteItem(_ item: MenuItem) {
         store.delete(item)
     }
+    
+    func updateItem(_ item: MenuItem) { store.update(item) }
 }
 
 

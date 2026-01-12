@@ -8,8 +8,58 @@
 import SwiftUI
 
 struct TraysListView: View {
+    @State private var trays: [Tray] = Tray.samples
+    @State private var showingCreateTray:Bool = false
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        NavigationStack {
+            Group {
+                if trays.isEmpty {
+                    ContentUnavailableView(
+                        "No Trays",
+                        systemImage: "tray.fill",
+                        description: Text(
+                            "Create a Tray to get started"
+                        )
+                    )
+                } else {
+                    traysList
+                }
+            }
+            .navigationTitle("Trays")
+            .toolbar {
+                ToolbarItem(placement: .navigationBarLeading) {
+                    EditButton()
+                }
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    Button("Add", systemImage: "plus") {
+                        showingCreateTray = true
+                    }
+                }
+            }
+            .sheet(isPresented: $showingCreateTray) {
+                CreateTrayView(onComplete: { newTray in
+                    trays.append(newTray)
+                })
+            }
+        }
+    }
+    
+    private var traysList: some View {
+        List {
+            ForEach(trays.indices, id: \.self) { index in
+                NavigationLink {
+                    TrayDetailView(tray: $trays[index])
+                } label: {
+                    TrayRowView(tray: trays[index])
+                }
+            }
+            .onDelete(perform: deleteTray)
+        }
+    }
+    
+    private func deleteTray(at offsets: IndexSet) {
+        trays.remove(atOffsets: offsets)
     }
 }
 
