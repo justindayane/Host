@@ -1,0 +1,10 @@
+{
+    "breakfast": [
+        { "name": "Blueberry Filled Pancakes", "category": "main" },
+        { "name": "NONE", "category": "side" },
+        { "name": "Chicken Apple Sausage", "category": "side" },
+        { "name": "Raisin Bran", "category": "cereal" },
+        { "name": "Rice Chex", "category": "alt_cereal" },
+        { "name": "Yogurt Partfait", "category": "alt_cups&bowls" }
+    ]
+}

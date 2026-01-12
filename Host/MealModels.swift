@@ -50,6 +50,10 @@ enum Diet: String, Codable, CaseIterable, Identifiable {
             return "Regular"
         }
     }
+    
+    static func == (lhs: Diet, rhs: Diet) -> Bool {
+        lhs.rawValue == rhs.rawValue
+    }
 }
 
 struct MenuItem: Identifiable, Codable {
@@ -57,7 +61,7 @@ struct MenuItem: Identifiable, Codable {
     var name: String
     var nutrition: String
     var mealTime: [MealTime]
-    var dishType: [DishType]
+    var dishType: DishType
     var isSpecial: Bool = false
     var diet: [Diet] = []
     
@@ -65,4 +69,13 @@ struct MenuItem: Identifiable, Codable {
 //    var appliesToAllDiets: Bool {
 //        return diet.isEmpty
 //    }
+}
+
+struct AppTheme {
+    static let cardCornerRadius: CGFloat = 14
+    static let cardShadowRadius: CGFloat = 3
+    static let cardPadding: CGFloat = 12
+    static let sectionSpacing: CGFloat = 22
+    static let gridSpacing: CGFloat = 14
+    static let horizontalPadding: CGFloat = 16
 }
