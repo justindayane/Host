@@ -15,7 +15,7 @@ struct TrayRowView: View {
             HStack(spacing: 8) {
                 DietKitIndicator(diet: tray.diet, size: 14)
                 
-                Text(tray.diet.title)
+                Text(tray.displayName)
                     .font(.headline)
             }
             
