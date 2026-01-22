@@ -61,14 +61,24 @@ enum Diet: String, Codable, CaseIterable, Identifiable {
 }
 
 struct MenuItem: Identifiable, Codable, Hashable {
-    var id: UUID = UUID()
+    var id: UUID
     var name: String
-    var nutrition: String
+    var attributes: NutritionAttributes
+    var tags: [ItemTag]
     var mealTimes: [MealTime]
     var dishType: DishType
     var isSpecial: Bool = false
     var diets: [Diet] = [] // diets that are allowed to eat this item
     
+    init(id: UUID = UUID(), name: String, attributes: NutritionAttributes = .none, tags: [ItemTag] = [], mealTimes: [MealTime], dishType: DishType, diets: [Diet] = []) {
+        self.id = id
+        self.name = name
+        self.attributes = attributes
+        self.tags = tags
+        self.mealTimes = mealTimes
+        self.dishType = dishType
+        self.diets = diets
+    }
 }
 
 struct Tray: Identifiable, Codable {

@@ -38,7 +38,7 @@ struct RulesEngine {
         // if the item's diet list is empty or contains our diet of interest -> pass
         // if the item's diet list does not contain our diet of interest -> fail
         
-        if !item.mealTimes.isEmpty && !item.diets.contains(diet){
+        if !item.diets.isEmpty && !item.diets.contains(diet){
             failedRules.append("Not suitable for \(diet.title) diet")
         }
         
