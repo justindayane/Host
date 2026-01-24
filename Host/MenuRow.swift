@@ -20,7 +20,7 @@ struct MenuRow: View {
                 Text(item.name)
                     .font(.headline)
                 
-                Text(item.nutrition)
+                Text("Nutrition Details (old)")
                     .font(.subheadline)
                     .foregroundColor(.secondary)
             }

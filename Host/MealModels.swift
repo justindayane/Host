@@ -61,23 +61,24 @@ enum Diet: String, Codable, CaseIterable, Identifiable {
 }
 
 struct MenuItem: Identifiable, Codable, Hashable {
-    var id: UUID
-    var name: String
-    var attributes: NutritionAttributes
-    var tags: [ItemTag]
-    var mealTimes: [MealTime]
-    var dishType: DishType
-    var isSpecial: Bool = false
-    var diets: [Diet] = [] // diets that are allowed to eat this item
+    let id: UUID
+    let name: String
+    let mealTimes: [MealTime]
+    let dishType: DishType
+    let attributes: NutritionAttributes
+    let tags: [ItemTag]
+    let isSpecial: Bool
+    let diets: [Diet]  // diets that are allowed to eat this item
     
-    init(id: UUID = UUID(), name: String, attributes: NutritionAttributes = .none, tags: [ItemTag] = [], mealTimes: [MealTime], dishType: DishType, diets: [Diet] = []) {
+    init(id: UUID = UUID(), name: String,  mealTimes: [MealTime], dishType: DishType, diets: [Diet] = [], attributes: NutritionAttributes = .none, tags: [ItemTag] = [], isSpecial: Bool = false) {
         self.id = id
         self.name = name
-        self.attributes = attributes
-        self.tags = tags
         self.mealTimes = mealTimes
         self.dishType = dishType
         self.diets = diets
+        self.attributes = attributes
+        self.tags = tags
+        self.isSpecial = isSpecial
     }
 }
 
@@ -113,152 +114,244 @@ extension MenuItem {
             // BREAKFAST - Regular (all diets)
             MenuItem(
                 name: "Scrambled Eggs",
-                nutrition: "180 kcal",
                 mealTimes: [.breakfast],
-                dishType: .main
+                dishType: .main,
+                attributes: NutritionAttributes(
+                    sodium: 380,   // Moderate sodium
+                    carbs: 2,      // Low carb
+                    fluid: nil
+                ),
+                tags: [.vegetarian]
             ),
             MenuItem(
                 name: "Whole Wheat Toast",
-                nutrition: "140 kcal",
+                
                 mealTimes: [.breakfast],
-                dishType: .side
+                dishType: .side,
+                
+                diets: [
+                    .cardiac,
+                    .carbControl
+                ],
+                attributes: NutritionAttributes(
+                    sodium: 120,
+                    carbs: 15,
+                    fluid: nil
+                ),
+                tags: [
+                    .vegetarian,
+                    .vegan
+                ]
             ),
+            // Cardiac-friendly breakfast
             MenuItem(
-                name: "Fresh Fruit Cup",
-                nutrition: "80 kcal",
+                name: "Oatmeal",
                 mealTimes: [.breakfast],
-                dishType: .side
+                dishType: .main,
+                diets: [.cardiac],
+                attributes: NutritionAttributes(
+                    sodium: 150,
+                    // Low sodium
+                    carbs: 27,
+                    // Moderate carbs
+                    fluid: nil
+                ),
+                tags: [
+                    .vegetarian,
+                    .vegan
+                ]
             ),
             MenuItem(
                 name: "Coffee",
-                nutrition: "5 kcal",
                 mealTimes: [.breakfast],
-                dishType: .beverage
+                dishType: .beverage,
+                attributes: NutritionAttributes(sodium: nil, carbs: nil, fluid: 240)
             ),
             
             // BREAKFAST - Diet-specific
             MenuItem(
                 name: "Oatmeal with Berries",
-                nutrition: "220 kcal",
                 mealTimes: [.breakfast],
                 dishType: .main,
-                isSpecial: true,
-                diets: [.cardiac, .carbControl]
+                diets: [.cardiac, .carbControl],
+                attributes: NutritionAttributes(sodium: 5, carbs: 35, fluid: 180)
             ),
             MenuItem(
                 name: "Egg White Omelette",
-                nutrition: "120 kcal",
                 mealTimes: [.breakfast],
                 dishType: .main,
-                isSpecial: true,
-                diets: [.cardiac, .renal]
+                diets: [.cardiac, .renal],
+                attributes: NutritionAttributes(sodium: 300, carbs: 2, fluid: nil)
             ),
             
             // LUNCH - Regular
             MenuItem(
                 name: "Turkey Sandwich",
-                nutrition: "380 kcal",
                 mealTimes: [.lunch],
-                dishType: .main
+                dishType: .main,
+                attributes: NutritionAttributes(sodium: 900, carbs: 30, fluid: nil)
             ),
             MenuItem(
                 name: "Garden Salad",
-                nutrition: "90 kcal",
-                mealTimes: [.lunch],
-                dishType: .side
+                mealTimes: [.lunch, .dinner],
+                dishType: .side,
+                diets: [],  // Universal
+                attributes: NutritionAttributes(
+                    sodium: 45,    // Very low sodium
+                    carbs: 8,      // Low carbs
+                    fluid: nil
+                ),
+                tags: [.vegetarian, .vegan]
             ),
+                        
             MenuItem(
                 name: "Apple Slices",
-                nutrition: "60 kcal",
                 mealTimes: [.lunch],
-                dishType: .side
+                dishType: .side,
+                attributes: NutritionAttributes(sodium: nil, carbs: 15, fluid: 100)
             ),
             
             // LUNCH - Diet-specific
             MenuItem(
                 name: "Grilled Chicken Breast (Unseasoned)",
-                nutrition: "165 kcal",
                 mealTimes: [.lunch, .dinner],
                 dishType: .main,
-                isSpecial: true,
-                diets: [.cardiac, .renal, .fluidRest]
+                diets: [.cardiac, .renal, .fluidRest],
+                attributes: NutritionAttributes(sodium: 70, carbs: nil, fluid: nil),
+                tags: [.containsMeat]
             ),
             MenuItem(
                 name: "Steamed Vegetables",
-                nutrition: "50 kcal",
                 mealTimes: [.lunch, .dinner],
                 dishType: .side,
-                isSpecial: true,
-                diets: [.cardiac, .renal]
+                diets: [.cardiac, .renal],
+                attributes: NutritionAttributes(sodium: 40, carbs: 12, fluid: 120),
+                tags: [.vegetarian, .vegan]
             ),
             MenuItem(
                 name: "Quinoa Bowl",
-                nutrition: "220 kcal",
                 mealTimes: [.lunch, .dinner],
                 dishType: .main,
-                isSpecial: true,
-                diets: [.carbControl, .fiberRest]
+                diets: [.carbControl, .fiberRest],
+                attributes: NutritionAttributes(sodium: 200, carbs: 40, fluid: nil)
             ),
             
             // DINNER - Regular
             MenuItem(
                 name: "Baked Chicken",
-                nutrition: "280 kcal",
                 mealTimes: [.dinner],
-                dishType: .main
+                dishType: .main,
+                attributes: NutritionAttributes(sodium: 200, carbs: 40, fluid: nil)
             ),
             MenuItem(
                 name: "Mashed Potatoes",
-                nutrition: "210 kcal",
                 mealTimes: [.dinner],
-                dishType: .side
+                dishType: .side,
+                attributes: NutritionAttributes(sodium: 250, carbs: nil, fluid: nil)
             ),
             MenuItem(
                 name: "Green Beans",
-                nutrition: "45 kcal",
                 mealTimes: [.dinner],
-                dishType: .side
+                dishType: .side,
+                attributes: NutritionAttributes(sodium: 10, carbs: 8, fluid: 80)
             ),
             
             // DINNER - Diet-specific
             MenuItem(
                 name: "Baked Salmon (Low Sodium)",
-                nutrition: "280 kcal",
                 mealTimes: [.dinner],
                 dishType: .main,
-                isSpecial: true,
-                diets: [.cardiac, .renal]
+                diets: [.cardiac, .renal],
+                attributes: NutritionAttributes(sodium: 120, carbs: nil, fluid: nil)
+            ),
+            MenuItem(
+                name: "Baked Salmon",
+                mealTimes: [.dinner],
+                dishType: .main,
+                diets: [.cardiac, .renal],
+                attributes: NutritionAttributes(
+                    sodium: 320,
+                    carbs: 0,
+                    fluid: nil
+                ),
+                tags: [.containsMeat]
+            ),
+            
+            MenuItem(
+                name: "Steamed Broccoli",
+                mealTimes: [.lunch, .dinner],
+                dishType: .side,
+                diets: [],  // Universal
+                attributes: NutritionAttributes(
+                    sodium: 30,
+                    carbs: 7,
+                    fluid: nil
+                ),
+                tags: [.vegetarian, .vegan]
             ),
             MenuItem(
                 name: "Brown Rice",
-                nutrition: "215 kcal",
                 mealTimes: [.lunch, .dinner],
                 dishType: .side,
-                isSpecial: true,
-                diets: [.carbControl, .fiberRest]
+                diets: [.carbControl],
+                attributes: NutritionAttributes(
+                    sodium: 5,     // Very low sodium
+                    carbs: 23,     // Moderate carbs
+                    fluid: nil
+                ),
+                tags: [.vegetarian, .vegan]
             ),
             
             // BEVERAGES - Available anytime
             MenuItem(
                 name: "Water",
-                nutrition: "0 kcal",
                 mealTimes: [.breakfast, .lunch, .dinner],
-                dishType: .beverage
+                dishType: .beverage,
+                diets: [],  // Universal
+                attributes: NutritionAttributes(
+                    sodium: 0,
+                    carbs: 0,
+                    fluid: 250     // 250ml
+                ),
+                tags: [.vegetarian, .vegan]
             ),
             MenuItem(
                 name: "Decaf Coffee",
-                nutrition: "5 kcal",
                 mealTimes: [.breakfast, .lunch, .dinner],
-                dishType: .beverage
+                dishType: .beverage,
+                attributes: NutritionAttributes(sodium: nil, carbs: nil, fluid: 240)
             ),
             MenuItem(
                 name: "Cranberry Juice (Low Sugar)",
-                nutrition: "50 kcal",
                 mealTimes: [.breakfast, .lunch, .dinner],
                 dishType: .beverage,
-                isSpecial: true,
-                diets: [.cardiac, .renal]
-            )
+                diets: [.cardiac, .renal],
+                attributes: NutritionAttributes(sodium: 10, carbs: 15, fluid: 240)
+            ),
+            MenuItem(
+                name: "Low-Fat Milk",
+                mealTimes: [.breakfast, .lunch, .dinner],
+                dishType: .beverage,
+                diets: [.cardiac],
+                attributes: NutritionAttributes(
+                    sodium: 100,
+                    carbs: 12,
+                    fluid: 240
+                ),
+                tags: [.vegetarian]
+            ),
+            MenuItem(
+                name: "Orange Juice",
+                mealTimes: [.breakfast],
+                dishType: .beverage,
+                diets: [.regular],
+                attributes: NutritionAttributes(
+                    sodium: 5,
+                    carbs: 26,     // High sugar/carbs
+                    fluid: 240
+                ),
+                tags: [.vegetarian, .vegan]
+            ),
         ]
     }
 }
@@ -300,7 +393,6 @@ extension Tray {
                 items: [
                     MenuItem(
                         name: "Avena",
-                        nutrition: "Some facts",
                         mealTimes: [.breakfast],
                         dishType: .side,
                         diets: [
@@ -309,19 +401,38 @@ extension Tray {
                         ]
                     ),
                     MenuItem(
+                        name: "Whole Wheat Toast",
+                        
+                        mealTimes: [.breakfast],
+                        dishType: .side,
+                        
+                        diets: [
+                            .cardiac,
+                            .carbControl
+                        ],
+                        attributes: NutritionAttributes(
+                            sodium: 120,
+                            carbs: 15,
+                            fluid: nil
+                        ),
+                        tags: [
+                            .vegetarian,
+                            .vegan
+                        ]
+                    ),
+                    MenuItem(
                         name: "Quinoa",
-                        nutrition: "Some other facts",
                         mealTimes: [.breakfast],
                         dishType: .side,
                         diets: [.carbControl]
                     ),
                     MenuItem(
                         name: "Bagel",
-                        nutrition: "So many facts",
                         mealTimes: [.lunch],
                         dishType: .main,
-                        diets: [.carbControl]
-                    ),
+                        diets: [.carbControl],
+                        attributes: NutritionAttributes(sodium: nil, carbs: nil, fluid: 240)
+                    )
                 ], createdAt: yesterday
             ),
             Tray(
@@ -330,11 +441,31 @@ extension Tray {
                 items: [
                     MenuItem(
                         name: "Garden Salad",
-                        nutrition: "here we go again with the facts",
                         mealTimes: [.breakfast],
                         dishType: .main,
-                        diets: [.renal]
-                    )
+                        diets: [.renal],
+                        attributes: NutritionAttributes(sodium: nil, carbs: nil, fluid: 240)
+                    ),
+                    MenuItem(
+                        name: "Whole Wheat Toast",
+                        
+                        mealTimes: [.breakfast],
+                        dishType: .side,
+                        
+                        diets: [
+                            .cardiac,
+                            .carbControl
+                        ],
+                        attributes: NutritionAttributes(
+                            sodium: 120,
+                            carbs: 15,
+                            fluid: nil
+                        ),
+                        tags: [
+                            .vegetarian,
+                            .vegan
+                        ]
+                    ),
                 ]
             ),
             Tray(
@@ -342,25 +473,37 @@ extension Tray {
                 time: .dinner,
                 items: [
                     MenuItem(
-                        name: "String Beans",
-                        nutrition: "here we go again with the facts",
-                        mealTimes: [.dinner],
-                        dishType: .main,
-                        diets: []
+                        name: "Whole Wheat Toast",
+                        
+                        mealTimes: [.breakfast],
+                        dishType: .side,
+                        
+                        diets: [
+                            .cardiac,
+                            .carbControl
+                        ],
+                        attributes: NutritionAttributes(
+                            sodium: 120,
+                            carbs: 15,
+                            fluid: nil
+                        ),
+                        tags: [
+                            .vegetarian,
+                            .vegan
+                        ]
                     ),
                     MenuItem(
                         name: "Mashed Potatoes",
-                        nutrition: "here we go again with the facts",
                         mealTimes: [.dinner],
                         dishType: .main,
                         diets: []
                     ),
                     MenuItem(
                         name: "Chicken Breast",
-                        nutrition: "here we go again with the facts",
                         mealTimes: [.dinner],
                         dishType: .main,
-                        diets: []
+                        diets: [],
+                        attributes: NutritionAttributes(sodium: nil, carbs: nil, fluid: 240)
                     )
                 ],
                 createdAt: twoHoursAgo

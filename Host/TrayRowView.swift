@@ -33,6 +33,6 @@ struct TrayRowView: View {
     }
 }
 
-#Preview {
-    TrayRowView(tray: Tray(diet: .carbControl, time: .lunch, items: [MenuItem(name: "Test", nutrition: "nutrition", mealTimes: [.dinner, .lunch], dishType: .main)]))
-}
+//#Preview {
+//    TrayRowView(tray: Tray(diet: .carbControl, time: .lunch, items: [MenuItem(name: "Test", nutrition: "nutrition", mealTimes: [.dinner, .lunch], dishType: .main)]))
+//}

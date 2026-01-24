@@ -56,15 +56,15 @@ struct TrayDetailView: View {
                     
                         
                             Section(header: Text("Items")) {
-                                ForEach(tray.items) { item in
-                                    VStack (alignment: .leading, spacing: 4){
-                                        Text(item.name)
-                                            .font(.headline)
-                                        Text(item.nutrition)
-                                            .font(.caption)
-                                            .foregroundStyle(.secondary)
-                                    }
-                                    .padding(.vertical, 4)
+                                ForEach(
+                                    tray.items
+                                ) { item in
+                                    // Use the Display only version of MenuItemRow
+                                    MenuItemRow(
+                                        item: item,
+                                        isSelected: false, // Never Selected, No checkmark
+                                        onTap: {
+                                        }) // No Action on Tap.
                                 }
                                 .onDelete(perform: deleteItems)
                             }
@@ -97,24 +97,24 @@ struct TrayDetailView: View {
     }
 }
 
-#Preview("Tray with Items") {
-    NavigationStack {
-        TrayDetailView(tray: .constant(
-            Tray(
-                diet: .cardiac,
-                time: .lunch,
-                items: [
-                    MenuItem(
-                        name: "Oatmeal",
-                        nutrition: "High fiber",
-                        mealTimes: [.breakfast],
-                        dishType: .main
-                    )
-                ]
-            )
-        ))
-    }
-}
+//#Preview("Tray with Items") {
+//    NavigationStack {
+//        TrayDetailView(tray: .constant(
+//            Tray(
+//                diet: .cardiac,
+//                time: .lunch,
+//                items: [
+//                    MenuItem(
+//                        name: "Oatmeal",
+//                        attribute: .glutenFree,
+//                        mealTimes: [.breakfast],
+//                        dishType: .main
+//                    )
+//                ]
+//            )
+//        ))
+//    }
+//}
 
 #Preview("Empty Tray") {
     NavigationStack {

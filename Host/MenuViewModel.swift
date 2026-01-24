@@ -104,11 +104,11 @@ class MenuViewModel: ObservableObject {
         let newItem = MenuItem(
             id: UUID(),
             name: name,
-            nutrition: nutrition,
             mealTimes: mealTime,
             dishType: dishType,
-            isSpecial: isSpecial,
-            diets: diet
+            diets: diet,
+            isSpecial: isSpecial
+            
         )
         
         store.add(newItem)

@@ -56,53 +56,12 @@ struct ItemSelectionView: View {
     
     var body: some View {
         List {
-            // Old
-//            Section(header: Text("Old Way - Items")) {
-//                ForEach(allMenuItems, id: \.id) { item in
-//                    HStack {
-//                        // Check Mark Indicator
-//                        Image(systemName: selectedItems.contains(item.id) ? "checkmark.circle.fill" : "circle")
-//                            .foregroundStyle(selectedItems.contains(item.id) ? .blue : .secondary)
-//                        // Item Details
-//                        VStack (alignment: .leading, spacing: 4){
-//                            Text(item.name)
-//                                .font(.headline)
-//                            Text(item.nutrition)
-//                                .font(.caption)
-//                                .foregroundStyle(.secondary)
-//                        }
-//                        
-//                        Spacer()
-//                    }
-//                    .contentShape(Rectangle())
-//                    .onTapGesture {
-//                        toggleSelection(for: item)
-//                    }
-//                }
-//            }
-            
-            // New
+
             Section(header: Text("Items")) {
                 ForEach(report.allowedItems) { item in
-                    HStack {
-                        // Check Mark Indicator
-                        Image(systemName: selectedItems.contains(item.id) ? "checkmark.circle.fill" : "circle")
-                            .foregroundStyle(selectedItems.contains(item.id) ? .blue : .secondary)
-                        // Item Details
-                        VStack (alignment: .leading, spacing: 4){
-                            Text(item.name)
-                                .font(.headline)
-                            Text(item.nutrition)
-                                .font(.caption)
-                                .foregroundStyle(.secondary)
-                        }
-                        
-                        Spacer()
-                    }
-                    .contentShape(Rectangle())
-                    .onTapGesture {
+                    MenuItemRow(item: item, isSelected: selectedItems.contains(item.id), onTap: {
                         toggleSelection(for: item)
-                    }
+                    })
                 }
             }
         }

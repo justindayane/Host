@@ -26,7 +26,7 @@ struct ItemView: View {
                         .font(.caption)
                         .foregroundStyle(.secondary)
                     
-                    Text(item.nutrition)
+                    Text("Nutrition Details")
                         .font(.caption)
                         .foregroundStyle(.secondary)
                 }
@@ -61,6 +61,6 @@ struct ItemView: View {
 }
 
 #Preview {
-    let item = MenuItem(name: "Test", nutrition: "Nutrition details", mealTimes: [MealTime.breakfast], dishType: DishType.main, diets: [.carbControl, .cardiac])
+    let item = MenuItem(name: "Test", mealTimes: [MealTime.breakfast], dishType: DishType.main, diets: [.carbControl, .cardiac])
     ItemView(item: item)
 }
