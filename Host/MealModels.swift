@@ -379,6 +379,57 @@ extension Diet {
     var darkKitColor: Color {
         kitColor.opacity(0.8)
     }
+    
+    /// The contraints that define this diet
+    var constraints: [Constraint] {
+        switch self {
+        case .regular:
+            return [] // No constraint
+        case .cardiac:
+            return [
+                .lowSodium,
+                .lowFat
+            ]
+        case .renal:
+            return [
+                .lowSodium,
+                .lowPotassium,
+                .fluidRestriction
+            ]
+        case .carbControl:
+            return [
+                .lowCarb
+            ]
+        case .carbControlCardiac:
+            return [
+                .lowFat,
+                .lowSodium,
+                .lowCarb
+            ]
+        case .fluidRest:
+            return [
+                .fluidRestriction
+            ]
+        case .fiberRest:
+            return [
+                // To be defined
+            ]
+        }
+    }
+    
+    /// Whether this diet has any medical restrictions/constraints at all
+    var hasMedicalRestrictions: Bool {
+        constraints.contains {
+            $0.type == .medical
+        }
+    }
+    
+    /// All medical constraints for this diet
+    var medicalConstraints: [Constraint] {
+        constraints.filter {
+            $0.type == .medical
+        }
+    }
 }
 
 extension Tray {
