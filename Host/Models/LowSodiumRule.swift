@@ -26,6 +26,5 @@ struct LowSodiumRule: Rule {
             // Failed -> Explain with specific numbers
             return .fail(reason: "Sodium \(sodium)mg exceeds sodium limit of \(maxSodium)mg")
         }
-        
     }
 }
