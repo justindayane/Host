@@ -24,6 +24,58 @@ struct TraysListView: View {
                     )
                 } else {
                     traysList
+//                    Button("Testons", systemImage: "plus") {
+//                        // Create rule with 30g limit (typical for carb control)
+//                        let rule = LowCarbRule(maxCarbs: 30)
+//
+//                        // Test 1: Low carb item (chicken - no carbs)
+//                        let chicken = MenuItem(
+//                            name: "Grilled Chicken",
+//                            mealTimes: [.lunch],
+//                            dishType: .main,
+//                            attributes: NutritionAttributes(carbs: 0)
+//                        )
+//                        let result1 = rule.evaluate(chicken)
+//                        print(result1)
+//                        print("Chicken: \(result1.isPassing ? "PASS" : "FAIL")")
+//                        if let reason = result1.failureReason {
+//                            print("Reason: \(result1.failureReason)")
+//                        } else {
+//                            print("Reason: none")
+//                        }
+//                        
+//
+////                         Test 2: High carb item (rice)
+//                        let rice = MenuItem(
+//                            name: "White Rice",
+//                            mealTimes: [.lunch],
+//                            dishType: .side,
+//                            attributes: NutritionAttributes(carbs: 45)
+//                        )
+//                        let result2 = rule.evaluate(rice)
+//                        print("\nRice: \(result2.isPassing ? "PASS" : "FAIL")")
+//                        if let reason = result2.failureReason {
+//                            print("Reason: \(result2.failureReason)")
+//                        } else {
+//                            print("Reason: none")
+//                        }
+//
+////                         Test 3: Moderate carb item (at limit)
+//                        let toast = MenuItem(
+//                            name: "Whole Wheat Toast",
+//                            mealTimes: [.breakfast],
+//                            dishType: .side,
+//                            attributes: NutritionAttributes(carbs: 30)
+//                        )
+//                        let result3 = rule.evaluate(toast)
+//                        print("\nToast (30g): \(result3.isPassing ? "PASS" : "FAIL")")
+//                        if let reason = result3.failureReason {
+//                            print("Reason: \(result3.failureReason)")
+//                        } else {
+//                            print("Reason: none")
+//                        }
+//
+//                    }
                 }
             }
             .navigationTitle("Trays")

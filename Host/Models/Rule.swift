@@ -17,3 +17,21 @@ protocol Rule {
     ///     - Returns: RuleResult i.e. pass if item satisfies rule, fail with reason otherwise
     func evaluate(_ item: MenuItem) -> RuleResult
 }
+
+// Template for ALL numeric Medical Rules
+//struct [RuleName]Rule: Rule {
+//    let max[Attribute]: Int
+//    var name: String { "[Display Name]" }
+//    
+//    func evaluate(_ item: MenuItem) -> RuleResult {
+//        guard let value = item.attributes.[attribute] else {
+//            return .pass
+//        }
+//        
+//        if value <= max[Attribute] {
+//            return .pass
+//        } else {
+//            return .fail(reason: "[Attribute] \(value)[unit] exceeds limit \(max[Attribute])[unit]")
+//        }
+//    }
+//}
