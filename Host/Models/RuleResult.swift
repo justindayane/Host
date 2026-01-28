@@ -13,7 +13,7 @@ enum RuleResult: Equatable {
     case fail(reason: String)
     
     /// Wethe the rule passed
-    var passed: Bool {
+    var isPassing: Bool {
         if case .pass = self {
             return true
         }
