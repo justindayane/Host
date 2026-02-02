@@ -35,3 +35,19 @@ protocol Rule {
 //        }
 //    }
 //}
+
+
+// Template for preference rules 
+//struct VegetarianRule: Rule {
+//    // No threshold needed!
+//    
+//    func evaluate(_ item: MenuItem) -> RuleResult {
+//        // No optional unwrapping needed - tags is always an array
+//        
+//        if item.tags.contains(.containsMeat) {  // ← Tag check (boolean)
+//            return .fail(reason: "Item contains meat")
+//        } else {
+//            return .pass
+//        }
+//    }
+//}

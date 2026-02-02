@@ -23,7 +23,7 @@ struct Constraint: Identifiable, Hashable, Codable {
 
 extension Constraint {
     // Some medical constraints
-    static let lowSodium = Constraint(name: "Low Sodium", type: ConstraintType.medical)
+    static let lowSodium = Constraint(name: "Low Sodium", type: .medical)
     static let lowCarb = Constraint(name: "Low Carb", type: .medical)
     static let lowFat = Constraint(name: "Low Fat", type: .medical)
     static let lowPotassium = Constraint(name: "Low Potassium", type: .medical)

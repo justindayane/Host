@@ -24,46 +24,37 @@ struct TraysListView: View {
                     )
                 } else {
                     traysList
-//                    Button("Testons", systemImage: "plus") {
-//                    let rule = VegetarianRule()
-//                    
-//                    // Test 1: Meat item (should fail)
-//                    let chicken = MenuItem(
-//                        name: "Grilled Chicken",
-//                        mealTimes: [.lunch],
-//                        dishType: .main,
-//                        attributes: .none,
-//                        tags: [.containsMeat]
-//                    )
-//                    let result1 = rule.evaluate(chicken)
-//                    print("Chicken: \(result1.isPassing ? "PASS" : "FAIL")")
-////                    print("Reason: \(result1.failureReason ?? "none")")
-//
-//                    // Test 2: Vegetarian item with tag (should pass)
-//                    let salad = MenuItem(
-//                        name: "Garden Salad",
-//                        mealTimes: [.lunch],
-//                        dishType: .side,
-//                        attributes: .none,
-//                        tags: [.vegetarian, .vegan]
-//                    )
-//                    let result2 = rule.evaluate(salad)
-//                    print("\nSalad: \(result2.isPassing ? "PASS" : "FAIL")")
-////                    print("Reason: \(result2.failureReason ?? "none")")
-//
-//                    // Test 3: Item with no tags (should pass - no meat!)
-//                    let rice = MenuItem(
-//                        name: "Brown Rice",
-//                        mealTimes: [.lunch],
-//                        dishType: .side,
-//                        attributes: .none,
-//                        tags: []
-//                    )
-//                    let result3 = rule.evaluate(rice)
-//                    print("\nRice (no tags): \(result3.isPassing ? "PASS" : "FAIL")")
-////                    print("Reason: \(result3.failureReason ?? "none")")
-//
-//                    }
+                    Button("Testsssss") {
+                        let sodiumConstraint = Constraint.lowSodium
+                        if let rule = RuleFactory.rule(for: sodiumConstraint) {
+                            print("Created: \(rule.name)")
+                            print("Type: \(type(of: rule))")
+                        } else {
+                            print("No rule for: \(sodiumConstraint.name)")
+                        }
+                        
+                        let carbConstraint = Constraint.lowCarb
+                        if let rule = RuleFactory.rule(for: carbConstraint) {
+                            print("\nCreated: \(rule.name)")
+                        } else {
+                            print("\nNo rule for: \(carbConstraint.name)")
+                        }
+                        
+                        // Test 3: Get rule for unimplemented constraint
+                        let fatConstraint = Constraint.lowFat
+                        if let rule = RuleFactory.rule(for: fatConstraint) {
+                            print("\nCreated: \(rule.name)")
+                        } else {
+                            print("\nNo rule for: \(fatConstraint.name)")
+                        }
+                        
+                        // Test 4: Get all rules for a diet
+                        print("\n--- Cardiac Diet Rules ---")
+                        let cardiacConstraints = Diet.cardiac.constraints
+                        let cardiacRules = cardiacConstraints.compactMap { RuleFactory.rule(for: $0) }
+                        print("Constraints: \(cardiacConstraints.map { $0.name })")
+                        print("Rules created: \(cardiacRules.map { $0.name })")
+                    }
                 }
             }
             .navigationTitle("Trays")
