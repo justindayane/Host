@@ -24,37 +24,38 @@ struct TraysListView: View {
                     )
                 } else {
                     traysList
-                    Button("Testsssss") {
-                        let sodiumConstraint = Constraint.lowSodium
-                        if let rule = RuleFactory.rule(for: sodiumConstraint) {
-                            print("Created: \(rule.name)")
-                            print("Type: \(type(of: rule))")
-                        } else {
-                            print("No rule for: \(sodiumConstraint.name)")
-                        }
-                        
-                        let carbConstraint = Constraint.lowCarb
-                        if let rule = RuleFactory.rule(for: carbConstraint) {
-                            print("\nCreated: \(rule.name)")
-                        } else {
-                            print("\nNo rule for: \(carbConstraint.name)")
-                        }
-                        
-                        // Test 3: Get rule for unimplemented constraint
-                        let fatConstraint = Constraint.lowFat
-                        if let rule = RuleFactory.rule(for: fatConstraint) {
-                            print("\nCreated: \(rule.name)")
-                        } else {
-                            print("\nNo rule for: \(fatConstraint.name)")
-                        }
-                        
-                        // Test 4: Get all rules for a diet
-                        print("\n--- Cardiac Diet Rules ---")
-                        let cardiacConstraints = Diet.cardiac.constraints
-                        let cardiacRules = cardiacConstraints.compactMap { RuleFactory.rule(for: $0) }
-                        print("Constraints: \(cardiacConstraints.map { $0.name })")
-                        print("Rules created: \(cardiacRules.map { $0.name })")
-                    }
+//                    Button("Testsssss") {
+//                        let sodiumConstraint = Constraint.lowSodium
+//                        if let rule = RuleFactory.rule(for: sodiumConstraint) {
+//                            print("Created: \(rule.name)")
+//                            print("Type: \(type(of: rule))")
+//                        } else {
+//                            print("No rule for: \(sodiumConstraint.name)")
+//                        }
+//                        
+//                        let carbConstraint = Constraint.lowCarb
+//                        if let rule = RuleFactory.rule(for: carbConstraint) {
+//                            print("\nCreated: \(rule.name)")
+//                        } else {
+//                            print("\nNo rule for: \(carbConstraint.name)")
+//                        }
+//                        
+//                        // Test 3: Get rule for unimplemented constraint
+//                        let fatConstraint = Constraint.lowFat
+//                        if let rule = RuleFactory.rule(for: fatConstraint) {
+//                            print("\nCreated: \(rule.name)")
+//                        } else {
+//                            print("\nNo rule for: \(fatConstraint.name)")
+//                        }
+//                        
+//                        // Test 4: Get all rules for a diet
+//                        print("\n--- Cardiac Diet Rules ---")
+//                        let cardiacConstraints = Diet.cardiac.constraints
+//                        let cardiacRules = cardiacConstraints.compactMap { RuleFactory.rule(for: $0) }
+//                        print("Constraints: \(cardiacConstraints.map { $0.name })")
+//                        print("Rules created: \(cardiacRules.map { $0.name })")
+//                    }
+                    
                 }
             }
             .navigationTitle("Trays")

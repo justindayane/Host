@@ -18,16 +18,6 @@ struct ItemSelectionView: View {
     
     private var report: EvaluationReport {
         RulesEngine.evaluate(allMenuItems, diet: diet, mealTime: mealTime)
-        
-        // Test
-//        let r = RulesEngine.evaluate(
-//                allMenuItems,
-//                diet: diet,
-//                mealTime: mealTime
-//            )
-//            
-//            print("📊 Report: \(r.allowedCount) allowed, \(r.blockedCount) blocked")
-//            return r
     }
     
     // Filtering logic (Reusing)

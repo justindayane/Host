@@ -25,22 +25,33 @@ struct RulesEngine {
         return EvaluationReport(evaluations: evaluations)
     }
     
+    // MARK : - Private Helper
+    /// Evaluates a single item against constraints using rules
     private static func evaluateItem(_ item: MenuItem, against diet: Diet, mealTime: MealTime) -> ItemEvaluation {
         var failedRules: [String] = [] // A list of the rules that this item failed - empty for now
         
-        // Rule 1: Check MealTime compatibility - first constraint
+        // Rule 1: Check MealTime compatibility
         if !item.mealTimes.contains(mealTime){
             //failed so we add it to the appropriate list
             failedRules.append("Not available for \(mealTime.rawValue.capitalized)")
         }
         
-        // Rule 2: Check Diet compatibility - second constraint
-        // if the item's diet list is empty or contains our diet of interest -> pass
-        // if the item's diet list does not contain our diet of interest -> fail
+        // Rule 2: Check Diet compatibility
         
-        if !item.diets.isEmpty && !item.diets.contains(diet){
-            failedRules.append("Not suitable for \(diet.title) diet")
+        // First, take the constraints from the diet
+        let constraints = diet.constraints
+        
+        // Then, create all the necessary rules and have them in a rules array
+        let rules = constraints.compactMap { RuleFactory.rule(for: $0)}
+        
+        // The actual check of the item to each rule
+        for rule in rules {
+            let result = rule.evaluate(item)
+            if let reason = result.failureReason {
+                failedRules.append("\(rule.name) : \(reason)")
+            }
         }
+        
         
         let isAllowed = failedRules.isEmpty // if this list is still empty, then the item passed all rules
         

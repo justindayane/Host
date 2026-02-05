@@ -99,7 +99,7 @@ struct Tray: Identifiable, Codable {
         "\(diet.title) Tray - \(mealTime.rawValue.capitalized)"
     }
     
-    init(diet: Diet, time: MealTime, items: [MenuItem] = [], createdAt: Date = Date()) { // Setting Breakfast as default for now. Because I don't want to go find every tray object and fix it yet
+    init(diet: Diet, time: MealTime, items: [MenuItem] = [], createdAt: Date = Date()) {
         self.id = UUID()
         self.diet = diet
         self.items = items

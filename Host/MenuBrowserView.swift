@@ -52,6 +52,51 @@ struct MenuBrowserView: View {
                             }
                         }
                     }
+                    Button("Test") {
+                        // Test item 1: High Sodium Chicken
+                        let highSodiumChicken = MenuItem(
+                            name: "Deep Fried Chicken",
+                            mealTimes: [.dinner],
+                            dishType: .main,
+                            attributes: NutritionAttributes(sodium: 900, carbs: 40, fluid: nil)
+                        )
+                        
+                        let report = RulesEngine.evaluate([highSodiumChicken], diet: .cardiac, mealTime: .lunch)
+                        print(" -------- High Sodium Chicken Evaluation --------")
+                        if let evaluation = report.evaluations.first {
+                            print("Item: \(evaluation.item.name)")
+                            print("Allowed: \(evaluation.isAllowed)")
+                            print("Failed rules: ")
+                            for reason in evaluation.failedRules {
+                                print("  - \(reason)")
+                            }
+                        }
+                        
+                        let salad = MenuItem(name: "Garden Salad", mealTimes: [.lunch, .dinner], dishType: .main, attributes: NutritionAttributes(sodium: 10, carbs: 20, fluid: 2))
+                        let report2 = RulesEngine.evaluate([salad], diet: .cardiac, mealTime: .breakfast)
+                        print("\n\n --------- Salad Evaluation ---------")
+                        if let evaluation = report2.evaluations.first {
+                            print("Item: \(evaluation.item.name)")
+                            print("Allowed: \(evaluation.isAllowed)")
+                            print("Failed rules: \(evaluation.failedRules.isEmpty ? "None" : "")")
+                            for reason in evaluation.failedRules {
+                                print("  - \(reason)")
+                            }
+                        }
+                        
+                        let highCarbRice = MenuItem(name: "Arroz", mealTimes: [.lunch, .dinner], dishType: .main, attributes: NutritionAttributes(carbs: 100))
+                        let report3 = RulesEngine.evaluate([highCarbRice], diet: .carbControl, mealTime: .lunch)
+                        if let evaluation = report3.evaluations.first {
+                            print("\n\n --------- Rice Eval ---------")
+                            print("Item: \(evaluation.item.name)")
+                            print("Allowed: \(evaluation.isAllowed)")
+                            print("Failed rules: \(evaluation.failedRules.isEmpty ? "None" : "")")
+                            for reason in evaluation.failedRules {
+                                print("  - \(reason)")
+                            }
+                        }
+                    }
+
                 }
                 .navigationTitle("Menu")
             }
