@@ -11,19 +11,27 @@ import SwiftUI
 struct MenuItemRow: View {
     let item: MenuItem
     let isSelected: Bool // Will always be false at call from TrayDetailView because we are not supposed to be cheking or unchecking there
+    let isAllowed: Bool // New parameter needed in order to display all items but have visually differentiate them
     let onTap: () -> Void //(leave empty {} at call time when you don't want any action performed when tapped
     
     var body: some View {
         HStack {
-            // Checkmark Indicator
-            Image(systemName: isSelected ? "checkmark.circle.fill" : "circle")
-                .foregroundStyle(isSelected ? .blue : .secondary)
+            // Checkmark Indicator only for allowed items
+            if isAllowed {
+                Image(systemName: isSelected ? "checkmark.circle.fill" : "circle")
+                    .foregroundStyle(isSelected ? .blue : .secondary)
+            } else {
+                // This is a blocked item. No check mark but Block (X) mark instead
+                Image(systemName: "xmark.circle.fill")
+                    .foregroundStyle(.red)
+            }
             
             // Item Details
             VStack (alignment: .leading, spacing: 4){
                 Text(item.name)
                     .font(.headline)
                 
+                // Nutrition attribute + tags
                 VStack(alignment: .leading, spacing: 2) {
                     // Show Sodium count if present
                     if let sodium = item.attributes.sodium {
@@ -58,6 +66,7 @@ struct MenuItemRow: View {
             
             Spacer()
         }
+        .opacity(isAllowed ? 1.0 : 0.5) // Fade the blocked items
         .contentShape(Rectangle())
         .onTapGesture(perform: onTap)
     }

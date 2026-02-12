@@ -62,7 +62,8 @@ struct TrayDetailView: View {
                                     // Use the Display only version of MenuItemRow
                                     MenuItemRow(
                                         item: item,
-                                        isSelected: false, // Never Selected, No checkmark
+                                        isSelected: false,// Never Selected, No checkmark
+                                        isAllowed: true,
                                         onTap: {
                                         }) // No Action on Tap.
                                 }

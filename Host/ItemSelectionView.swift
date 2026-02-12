@@ -48,9 +48,13 @@ struct ItemSelectionView: View {
         List {
 
             Section(header: Text("Items")) {
-                ForEach(report.allowedItems) { item in
-                    MenuItemRow(item: item, isSelected: selectedItems.contains(item.id), onTap: {
-                        toggleSelection(for: item)
+                ForEach(report.evaluations) { evaluation in
+                    MenuItemRow(item: evaluation.item, isSelected: selectedItems.contains(evaluation.item.id), isAllowed: evaluation.isAllowed, onTap: {
+                        // Only allow selection if item is allowed
+                        if evaluation.isAllowed {
+                            toggleSelection(for: evaluation.item)
+                        }
+                        // Else, do nothing for now. We will bring up a sheet with the failure list
                     })
                 }
             }
