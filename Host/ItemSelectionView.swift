@@ -58,6 +58,7 @@ struct ItemSelectionView: View {
                         if evaluation.isAllowed {
                             toggleSelection(for: evaluation.item)
                         }
+                        
                         // Else, do nothing for now. We will bring up a sheet with the failure list
                         else {
                             selectedEvaluation = evaluation
