@@ -16,6 +16,10 @@ struct ItemSelectionView: View {
     @State private var selectedItems: Set<UUID> = []
     @Environment(\.dismiss) var dismiss
     
+    // State needed for failure explanation sheet
+    @State private var selectedEvaluation: ItemEvaluation?
+    
+    
     private var report: EvaluationReport {
         RulesEngine.evaluate(allMenuItems, diet: diet, mealTime: mealTime)
     }
@@ -55,6 +59,9 @@ struct ItemSelectionView: View {
                             toggleSelection(for: evaluation.item)
                         }
                         // Else, do nothing for now. We will bring up a sheet with the failure list
+                        else {
+                            selectedEvaluation = evaluation
+                        }
                     })
                 }
             }
@@ -76,6 +83,10 @@ struct ItemSelectionView: View {
                 }
                 .disabled(selectedItems.isEmpty)
             }
+        }
+        .sheet(item: $selectedEvaluation) { evaluation in
+            // Placeholder for now
+            Text("Explanation for \(evaluation.item.name)")
         }
     }
 }
