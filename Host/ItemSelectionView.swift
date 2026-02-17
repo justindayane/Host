@@ -87,7 +87,7 @@ struct ItemSelectionView: View {
         }
         .sheet(item: $selectedEvaluation) { evaluation in
             // Placeholder for now
-            Text("Explanation for \(evaluation.item.name)")
+            ItemExplanationView(evaluation: evaluation)
         }
     }
 }
