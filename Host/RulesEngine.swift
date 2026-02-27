@@ -30,13 +30,7 @@ struct RulesEngine {
     private static func evaluateItem(_ item: MenuItem, against diet: Diet, mealTime: MealTime) -> ItemEvaluation {
         var failedRules: [String] = [] // A list of the rules that this item failed - empty for now
         
-        // Rule 1: Check MealTime compatibility
-        if !item.mealTimes.contains(mealTime){
-            //failed so we add it to the appropriate list
-            failedRules.append("Not available for \(mealTime.rawValue.capitalized)")
-        }
-        
-        // Rule 2: Check Diet compatibility
+        // Rule: Check Diet compatibility - Mealtime is already filtered 
         
         // First, take the constraints from the diet
         let constraints = diet.constraints

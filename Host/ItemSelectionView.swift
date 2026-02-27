@@ -21,7 +21,13 @@ struct ItemSelectionView: View {
     
     
     private var report: EvaluationReport {
-        RulesEngine.evaluate(allMenuItems, diet: diet, mealTime: mealTime)
+        // First lets apply the hard filter - mealTime
+        let availableItems = allMenuItems.filter { item in
+            item.mealTimes.contains(mealTime)
+        }
+        
+        // Then we apply the soft filter with explanations
+        return RulesEngine.evaluate(availableItems, diet: diet, mealTime: mealTime)
     }
     
     // Filtering logic (Reusing)
