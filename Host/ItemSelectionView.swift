@@ -58,9 +58,10 @@ struct ItemSelectionView: View {
                         if evaluation.isAllowed {
                             toggleSelection(for: evaluation.item)
                         }
-                        
-                        // Else, do nothing for now. We will bring up a sheet with the failure list
                         else {
+                            let impactFeedback = UIImpactFeedbackGenerator(style: .light)
+                            impactFeedback.impactOccurred()
+                            
                             selectedEvaluation = evaluation
                         }
                     })
@@ -86,7 +87,6 @@ struct ItemSelectionView: View {
             }
         }
         .sheet(item: $selectedEvaluation) { evaluation in
-            // Placeholder for now
             ItemExplanationView(evaluation: evaluation)
         }
     }

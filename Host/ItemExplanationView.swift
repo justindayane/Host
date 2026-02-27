@@ -35,7 +35,7 @@ struct ItemExplanationView: View {
                 if !evaluation.isAllowed {
                     Section("Reasons") {
                         if evaluation.failedRules.isEmpty {
-                            Text("No Specific Reasons Provided")
+                            Text("Item is blocked (No Specific Reasons Provided)")
                                 .foregroundStyle(.secondary)
                                 .italic()
                         } else {
