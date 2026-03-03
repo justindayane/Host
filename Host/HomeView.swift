@@ -88,7 +88,7 @@ struct HomeView: View {
                                 SmallCard(title: "Units", imageName: "machinev")
                             }
                             NavigationLink(destination: TraysListView()) {
-                                SmallCard(title: "Trays (working)", imageName: "tray")
+                                SmallCard(title: "Trays ...", imageName: "tray")
                             }
                         }
                     }
