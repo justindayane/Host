@@ -11,6 +11,7 @@ struct ItemSelectionView: View {
     let diet: Diet
     let allMenuItems: [MenuItem]
     let mealTime: MealTime // Needed to add this in order to use the RulesEngine
+    let extraConstraints: [Constraint]
     var onComplete: ([MenuItem]) -> Void
     
     @State private var selectedItems: Set<UUID> = []
@@ -27,7 +28,7 @@ struct ItemSelectionView: View {
         }
         
         // Then we apply the soft filter with explanations
-        return RulesEngine.evaluate(availableItems, diet: diet, mealTime: mealTime)
+        return RulesEngine.evaluate(availableItems, diet: diet, mealTime: mealTime, extraConstraints: extraConstraints)
     }
     
     // Filtering logic (Reusing)
@@ -102,7 +103,7 @@ struct ItemSelectionView: View {
     ItemSelectionView(
         diet: .carbControl,
         allMenuItems: MenuItem.samples,
-        mealTime: .lunch,
+        mealTime: .lunch, extraConstraints: [],
         onComplete: {
             _ in
         })

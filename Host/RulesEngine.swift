@@ -17,9 +17,9 @@ struct RulesEngine {
     ///     - diet: the diet constraint to apply
     ///     - mealTime: the mealTime constraint to apply
     /// - Returns: Report with allowed and blocked items
-    static func evaluate(_ items: [MenuItem], diet: Diet, mealTime: MealTime) -> EvaluationReport {
+    static func evaluate(_ items: [MenuItem], diet: Diet, mealTime: MealTime, extraConstraints: [Constraint] = []) -> EvaluationReport {
         let evaluations = items.map { item in
-            evaluateItem(item, against: diet, mealTime: mealTime) // The helper is actually doing the evaluation job for each of those item
+            evaluateItem(item, against: diet, mealTime: mealTime, extraConstraints: extraConstraints) // The helper is actually doing the evaluation job for each of those item
         }
         
         return EvaluationReport(evaluations: evaluations)
@@ -27,18 +27,24 @@ struct RulesEngine {
     
     // MARK : - Private Helper
     /// Evaluates a single item against constraints using rules
-    private static func evaluateItem(_ item: MenuItem, against diet: Diet, mealTime: MealTime) -> ItemEvaluation {
+    private static func evaluateItem(_ item: MenuItem, against diet: Diet, mealTime: MealTime, extraConstraints: [Constraint]) -> ItemEvaluation {
         var failedRules: [String] = [] // A list of the rules that this item failed - empty for now
         
-        // Rule: Check Diet compatibility - Mealtime is already filtered 
+        // Rule: Check Diet compatibility - Mealtime is already filtered
         
-        // First, take the constraints from the diet
-        let constraints = diet.constraints
+        // 1. Base constraints
+        let baseConstraints = diet.constraints
         
-        // Then, create all the necessary rules and have them in a rules array
-        let rules = constraints.compactMap { RuleFactory.rule(for: $0)}
+        // 2. Then merge with extra constraints
+        let constraints = baseConstraints + extraConstraints
         
-        // The actual check of the item to each rule
+        // 3. Handle duplicates with a helper function
+        let uniqueConstraints = Array(Set(constraints))
+        
+        // 4. Then, create all the necessary rules and have them in a rules array
+        let rules = uniqueConstraints.compactMap { RuleFactory.rule(for: $0)}
+        
+        // 5. Evaluate: The actual check of the item to each rule
         for rule in rules {
             let result = rule.evaluate(item)
             if let reason = result.failureReason {

@@ -89,6 +89,8 @@ struct Tray: Identifiable, Codable {
     var items: [MenuItem]
     let createdAt: Date
     
+    var extraConstraints: [Constraint] // New due to mutiple constraints evaluation
+    
     var itemCount: Int {
         items.count
     }
@@ -99,12 +101,13 @@ struct Tray: Identifiable, Codable {
         "\(diet.title) Tray - \(mealTime.rawValue.capitalized)"
     }
     
-    init(diet: Diet, time: MealTime, items: [MenuItem] = [], createdAt: Date = Date()) {
+    init(diet: Diet, time: MealTime, items: [MenuItem] = [], createdAt: Date = Date(), extraConstraints: [Constraint] = []) {
         self.id = UUID()
         self.diet = diet
         self.items = items
         self.mealTime = time
         self.createdAt = createdAt
+        self.extraConstraints = extraConstraints
     }
 }
 
@@ -517,7 +520,7 @@ extension Tray {
                             .vegan
                         ]
                     ),
-                ]
+                ], extraConstraints: [.lowCarb]
             ),
             Tray(
                 diet: .regular,
