@@ -64,4 +64,25 @@ extension EvaluationReport {
         }
         return reason
     }
+    
+    // Let's get the frequency of each failure reason
+    var failureReasonCount: [String : Int] {
+        var counts = [String : Int]()
+        for eval in blockedEvaluations {
+            for reason in eval.failedRules {
+                counts[reason, default: 0] += 1
+            }
+        }
+        
+        return counts
+    }
+    
+    // Let's now sort the counts dictionnary: For that we need to make it an array of tuples
+    var sortedFailureReasons: [(reason: String, count: Int)] {
+        failureReasonCount
+            .map { (reason: $0.key, count: $0.value) }
+            .sorted { item1, item2 in
+            item1.count > item2.count
+        }
+    }
 }

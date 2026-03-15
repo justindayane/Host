@@ -82,8 +82,11 @@ struct ItemSelectionView: View {
                         .font(.headline)
                         .multilineTextAlignment(.center)
                         .background(.red)
-                    if let reason = report.tempBlockingReason {
-                        Text("Example blocker - \(reason)")
+                    if let top = report.sortedFailureReasons.first {
+                        Text("Most Items are blocked by: ")
+                            .font(.subheadline)
+                            .background(.red)
+                        Text("\(top.reason)")
                             .font(.footnote)
                             .foregroundStyle(.secondary)
                             .multilineTextAlignment(.center)
