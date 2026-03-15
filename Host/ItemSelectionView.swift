@@ -75,6 +75,31 @@ struct ItemSelectionView: View {
                 }
             }
         }
+        .overlay {
+            if !report.hasAllowedItems {
+                VStack(spacing: 8) {
+                    Text("No Item Passed the constraints")
+                        .font(.headline)
+                        .multilineTextAlignment(.center)
+                        .background(.red)
+                    if let reason = report.tempBlockingReason {
+                        Text("Example blocker - \(reason)")
+                            .font(.footnote)
+                            .foregroundStyle(.secondary)
+                            .multilineTextAlignment(.center)
+                            .padding(.horizontal)
+                            .background(.red)
+                    }
+                    Text("Try adjusting the diet or meal time, or ask the dietitian.")
+                        .font(.footnote)
+                        .foregroundStyle(.secondary)
+                        .multilineTextAlignment(.center)
+                        .padding(.horizontal)
+                        .background(.red)
+                }
+                .padding()
+            }
+        }
         .navigationTitle("Select Items")
         .navigationBarTitleDisplayMode(.inline)
         .toolbar {

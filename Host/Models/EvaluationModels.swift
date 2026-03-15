@@ -49,4 +49,19 @@ struct EvaluationReport {
     var blockedCount: Int {
         blockedEvaluations.count
     }
+    
+    // This is needed to implement and empty state for step 12
+    var hasAllowedItems: Bool {
+        !allowedItems.isEmpty
+    }
+}
+
+extension EvaluationReport {
+    // Temporarily grabbing the first blocked item
+    var tempBlockingReason: String? {
+        guard let first = blockedEvaluations.first, let reason = first.failedRules.first else {
+            return nil
+        }
+        return reason
+    }
 }
