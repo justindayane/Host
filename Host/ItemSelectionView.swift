@@ -8,10 +8,8 @@
 import SwiftUI
 
 struct ItemSelectionView: View {
-    let diet: Diet
+    let tray: Tray // <- Adding this so that I can maintain the mental model of passing the tray rather than pieces of details
     let allMenuItems: [MenuItem]
-    let mealTime: MealTime // Needed to add this in order to use the RulesEngine
-    let extraConstraints: [Constraint]
     var onComplete: ([MenuItem]) -> Void
     
     @State private var selectedItems: Set<UUID> = []
@@ -24,19 +22,19 @@ struct ItemSelectionView: View {
     private var report: EvaluationReport {
         // First lets apply the hard filter - mealTime
         let availableItems = allMenuItems.filter { item in
-            item.mealTimes.contains(mealTime)
+            item.mealTimes.contains(tray.mealTime)
         }
         
         // Then we apply the soft filter with explanations
-        return RulesEngine.evaluate(availableItems, diet: diet, mealTime: mealTime, extraConstraints: extraConstraints)
+        return RulesEngine.evaluate(availableItems, diet: tray.diet, mealTime: tray.mealTime, extraConstraints: tray.extraConstraints)
     }
     
     // Filtering logic (Reusing)
     private var filteredMenuItems: [MenuItem] {
-        if diet == .regular {
+        if tray.diet == .regular {
             return allMenuItems
         } else {
-            return allMenuItems.filter { $0.diets.isEmpty || $0.diets.contains(diet) }
+            return allMenuItems.filter { $0.diets.isEmpty || $0.diets.contains(tray.diet) }
         }
     }
     
@@ -129,9 +127,8 @@ struct ItemSelectionView: View {
 
 #Preview {
     ItemSelectionView(
-        diet: .carbControl,
+        tray: Tray(diet: .carbControl, time: .lunch, items: [MenuItem.samples[0]]),
         allMenuItems: MenuItem.samples,
-        mealTime: .lunch, extraConstraints: [],
         onComplete: {
             _ in
         })

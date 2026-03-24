@@ -79,7 +79,7 @@ struct TrayDetailView: View {
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
                     NavigationLink {
-                        ItemSelectionView(diet: tray.diet, allMenuItems: MenuItem.samples, mealTime: tray.mealTime, extraConstraints: tray.extraConstraints) { selectedItemsFromChild in
+                        ItemSelectionView(tray: tray, allMenuItems: MenuItem.samples) { selectedItemsFromChild in
                             tray.items.append(contentsOf: selectedItemsFromChild)
                         }
                     } label: {
