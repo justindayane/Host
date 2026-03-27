@@ -10,6 +10,8 @@ import SwiftUI
 struct CreateTrayView: View {
     @State private var selectedDiet: Diet = .regular
     @State private var selectedMealTime: MealTime = .breakfast
+    @State private var useExtraConstraints: Bool = false // Minimal UI to be used for extra constraint
+    
     @Environment(\.dismiss) var dismiss
     var onComplete : (Tray) -> Void
     
@@ -38,6 +40,11 @@ struct CreateTrayView: View {
                     }
 //                    .pickerStyle(.navigationLink)
                 }
+                // The actual minimal UI for the extra constraint
+                Section {
+                    Toggle("Add Low Carb constraint", isOn: $useExtraConstraints)
+                }
+                
                 Section {
                     VStack(alignment: .leading, spacing: 8) {
                         HStack {
@@ -54,7 +61,8 @@ struct CreateTrayView: View {
 
                 Section {
                     Button("Create Tray") {
-                        let tray = Tray(diet: selectedDiet, time: selectedMealTime)
+                        let extras: [Constraint] = useExtraConstraints ? [.lowCarb] : []
+                        let tray = Tray(diet: selectedDiet, time: selectedMealTime, extraConstraints: extras)
                         onComplete(tray)
                         dismiss()
                     }
