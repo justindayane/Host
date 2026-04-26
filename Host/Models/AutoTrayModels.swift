@@ -12,14 +12,15 @@ struct CategoryRequirement {
     var quantity: Int
 }
 
-struct CategoryTrace {
+struct CategoryTrace: Hashable {
     var category: DishType
     var candidateItemsIDs: [UUID]
     var selectedItemID: UUID?
     var reason: String
 }
 
-struct GeneratedTray {
+struct GeneratedTray : Identifiable {
+    let id = UUID()
     let tray: Tray
     let requiredComposition: [CategoryRequirement]
     let traces: [CategoryTrace]

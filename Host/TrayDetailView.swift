@@ -9,7 +9,7 @@ import SwiftUI
 
 struct TrayDetailView: View {
     @Binding var tray: Tray // Unsure how to make preview work after this change
-    
+    @State private var generatedTray: GeneratedTray?
     
     var body: some View {
             List {
@@ -53,24 +53,20 @@ struct TrayDetailView: View {
                     }
                 }
                 else {
-                    
-                        
-                            Section(header: Text("Items")) {
-                                ForEach(
-                                    tray.items
-                                ) { item in
-                                    // Use the Display only version of MenuItemRow
-                                    MenuItemRow(
-                                        item: item,
-                                        isSelected: false,// Never Selected, No checkmark
-                                        isAllowed: true,
-                                        onTap: {
-                                        }) // No Action on Tap.
-                                }
-                                .onDelete(perform: deleteItems)
-                            }
-                        
-                    
+                    Section(header: Text("Items")) {
+                        ForEach(
+                            tray.items
+                        ) { item in
+                            // Use the Display only version of MenuItemRow
+                            MenuItemRow(
+                                item: item,
+                                isSelected: false,// Never Selected, No checkmark
+                                isAllowed: true,
+                                onTap: {
+                                }) // No Action on Tap.
+                        }
+                        .onDelete(perform: deleteItems)
+                    }
                 }
                 
             }
@@ -90,6 +86,39 @@ struct TrayDetailView: View {
                 ToolbarItem(placement: .navigationBarLeading) {
                     EditButton()
                 }
+                
+                ToolbarItem(placement: .primaryAction) {
+                    Button("Generate Default Tray", systemImage: "tray") {
+                        generatedTray = DefaultTrayGenerator.generate(from: MenuItem.samples, for: tray)
+                    }
+                }
+            }
+            .sheet(item: $generatedTray) { generatedTray in
+                VStack (alignment: .leading, spacing: 8){
+                    Text("Generated Tray")
+                        .font(.title2)
+                    Text("Status: \(generatedTray.isComplete ? "Complete" : "Incomplete")")
+                    Divider()
+                    ForEach(generatedTray.tray.items) { item in
+                        MenuItemRow(item: item, isSelected: false, isAllowed: true, onTap: {})
+                    }
+                    Divider()
+                    VStack(alignment: .leading) {
+                        Text("Explanations")
+                            .font(.headline)
+                            .padding(.bottom, 4)
+                        ForEach(generatedTray.traces, id: \.self) { trace in
+                            VStack(alignment: .leading, spacing: 4) {
+                                Text(trace.category.rawValue.capitalized)
+                                    .fontWeight(.semibold)
+                                Text(trace.reason)
+                                    .foregroundStyle(.secondary)
+                            }
+                        }
+                    }
+                }
+                .padding()
+                .frame(maxWidth: .infinity, alignment: .leading)
             }
     }
     
