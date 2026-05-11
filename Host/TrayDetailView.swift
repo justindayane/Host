@@ -10,6 +10,8 @@ import SwiftUI
 struct TrayDetailView: View {
     @Binding var tray: Tray // Unsure how to make preview work after this change
     @State private var generatedTray: GeneratedTray?
+    @ObservedObject var history: DecisionHistory
+    var addTray: (Tray) -> Void
     
     var body: some View {
             List {
@@ -77,6 +79,7 @@ struct TrayDetailView: View {
                     NavigationLink {
                         ItemSelectionView(tray: tray, allMenuItems: MenuItem.samples) { selectedItemsFromChild in
                             tray.items.append(contentsOf: selectedItemsFromChild)
+                            history.recordDecision(from: tray, wasDefault: false)
                         }
                     } label: {
                         Label("Add items", systemImage: "plus")
@@ -119,6 +122,11 @@ struct TrayDetailView: View {
                 }
                 .padding()
                 .frame(maxWidth: .infinity, alignment: .leading)
+                Button("Use this tray") {
+                    addTray(generatedTray.tray)
+                    history.recordDecision(from: generatedTray.tray, wasDefault: true)
+                    self.generatedTray = nil
+                }
             }
     }
     
@@ -150,6 +158,8 @@ struct TrayDetailView: View {
     NavigationStack {
         TrayDetailView(tray: .constant(
             Tray(diet: .renal, time: .lunch, items: [])
-        ))
+        ), history: .init()) { _ in
+            
+        }
     }
 }

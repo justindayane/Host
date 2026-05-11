@@ -10,6 +10,7 @@ import SwiftUI
 struct TraysListView: View {
     @State private var trays: [Tray] = Tray.samples
     @State private var showingCreateTray:Bool = false
+    @StateObject private var history = DecisionHistory()
     
     var body: some View {
         NavigationStack {
@@ -68,11 +69,16 @@ struct TraysListView: View {
                         showingCreateTray = true
                     }
                 }
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    NavigationLink {
+                        DecisionHistoryView(history: history)
+                    } label: {
+                        Image(systemName: "list.bullet.clipboard")
+                    }
+                }
             }
             .sheet(isPresented: $showingCreateTray) {
-                CreateTrayView(onComplete: { newTray in
-                    trays.append(newTray)
-                })
+                CreateTrayView(onComplete: addTray)
             }
         }
     }
@@ -81,7 +87,7 @@ struct TraysListView: View {
         List {
             ForEach(trays.indices, id: \.self) { index in
                 NavigationLink {
-                    TrayDetailView(tray: $trays[index])
+                    TrayDetailView(tray: $trays[index], history: history, addTray: addTray)
                 } label: {
                     TrayRowView(tray: trays[index])
                 }
@@ -92,6 +98,10 @@ struct TraysListView: View {
     
     private func deleteTray(at offsets: IndexSet) {
         trays.remove(atOffsets: offsets)
+    }
+    
+    private func addTray(_ tray: Tray) {
+        trays.append(tray)
     }
 }
 

@@ -81,5 +81,5 @@ struct CreateTrayView: View {
 #Preview {
     CreateTrayView(onComplete: { tray in
         print("Preview created a \(tray.diet.title) tray")
-    } )
+    })
 }

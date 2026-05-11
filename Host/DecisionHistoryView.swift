@@ -17,17 +17,27 @@ struct DecisionHistoryView: View {
         else {
             List {
                 ForEach(history.logs) { log in
-                    DisclosureGroup() {
+                    DisclosureGroup {
                         Text("Selected Items:")
                         ForEach(log.selectedItemNames, id: \.self) { item in
                             Text(item)
+                                .font(.caption)
                         }
                     } label: {
-                        VStack {
-                            Text("\(log.mealTime.rawValue.capitalized)")
-                            Text(log.timestamp, style: .date)
-                            Text(log.wasDefault ? "Default" : "Custom")
+                        VStack (alignment: .leading) {
+                            Text("\(log.mealTime.rawValue.capitalized) Tray Decision")
+                                .font(.headline)
+                            HStack {
+                                Text(log.timestamp.formatted(date: .abbreviated, time: .shortened))
+                                    .font(.subheadline)
+                                    .foregroundStyle(.secondary)
+                                Text(log.wasDefault ? "Default" : "Custom")
+                                    .foregroundStyle(log.wasDefault ? .blue : .orange)
+                                    .font(.caption)
+                            }
                             Text(log.constraintNames.joined(separator: ", "))
+                                .font(.caption)
+                                .foregroundStyle(.secondary)
                         }
                     }
                 }

@@ -126,8 +126,7 @@ struct ItemSelectionView: View {
 }
 
 #Preview {
-    ItemSelectionView(
-        tray: Tray(diet: .carbControl, time: .lunch, items: [MenuItem.samples[0]]),
+    ItemSelectionView(tray: Tray(diet: .carbControl, time: .lunch, items: [MenuItem.samples[0]]),
         allMenuItems: MenuItem.samples,
         onComplete: {
             _ in
