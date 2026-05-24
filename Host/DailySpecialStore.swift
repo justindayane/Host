@@ -8,27 +8,27 @@
 import Foundation
 
 
-final class MenuStore: ObservableObject {
-    @Published var menu: Menu
+final class DailySpecialStore: ObservableObject {
+    @Published var menu: DailySpecialMenu
 
     init() {
-        let url = Bundle.main.url(forResource: "specials", withExtension: "json")!
+        let url = Bundle.main.url(forResource: "DailySpecials", withExtension: "json")!
         let data = try! Data(contentsOf: url)
         let decoder = JSONDecoder()
         do {
-            menu = try decoder.decode(Menu.self, from: data)
+            menu = try decoder.decode(DailySpecialMenu.self, from: data)
         } catch {
             print("Decoding failed:", error)
             // temporary fallback so the app can run
-            menu = Menu(meta: Meta(cycle_length_weeks: 2, start_date: "2024-01-01"),
+            menu = DailySpecialMenu(meta: DailySpecialMeta(cycle_length_weeks: 2, start_date: "2024-01-01"),
                         weeks: [])
         }
     }
 }
 
 
-extension MenuStore {
-    func meals(for date: Date = Date()) -> DayMeals? {
+extension DailySpecialStore {
+    func meals(for date: Date = Date()) -> DailySpecialMeals? {
         // 1. Parse start_date
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyy-MM-dd"

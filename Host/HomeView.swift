@@ -92,7 +92,7 @@ struct HomeView: View {
                             }
                         }
                     }
-                    NavigationLink(destination: TodayMealsView()) {
+                    NavigationLink(destination: DailySpecialView()) {
                         LargeCard(title: "Specials", imageName: "units",description: "Daily list of specials")
                     }
                     HStack {

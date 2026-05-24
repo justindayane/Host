@@ -8,20 +8,20 @@
 import Foundation
 
 
-struct Menu: Decodable {
-    let meta: Meta
-    let weeks: [Week]
+struct DailySpecialMenu: Decodable {
+    let meta: DailySpecialMeta
+    let weeks: [DailySpecialWeek]
 }
 
-struct Meta: Decodable {
+struct DailySpecialMeta: Decodable {
     let cycle_length_weeks: Int   // 2
     let start_date: String        // "2024-01-01"
 }
 
-struct Week: Decodable, Identifiable {
+struct DailySpecialWeek: Decodable, Identifiable {
     var id: UUID = UUID()
     let week_number: Int          // 1 or 2
-    let days: [String: Day]       // "monday", "tuesday", ...
+    let days: [String: DailySpecialDay]       // "monday", "tuesday", ...
     
     private enum CodingKeys: String, CodingKey {
         case week_number
@@ -29,24 +29,24 @@ struct Week: Decodable, Identifiable {
     }
 }
 
-struct Day: Decodable, Identifiable {
+struct DailySpecialDay: Decodable, Identifiable {
     var id: UUID = UUID()
-    let meals: DayMeals
+    let meals: DailySpecialMeals
     
     private enum CodingKeys: String, CodingKey {
         case meals
     }
 }
 
-struct DayMeals: Decodable {
-    let breakfast: [MealItem]
-    let lunch: [MealItem]
-    let dinner: [MealItem]
+struct DailySpecialMeals: Decodable {
+    let breakfast: [DailySpecialItem]
+    let lunch: [DailySpecialItem]
+    let dinner: [DailySpecialItem]
     
     
 }
 
-struct MealItem: Decodable, Identifiable {
+struct DailySpecialItem: Decodable, Identifiable {
     var id: UUID = UUID()
     let name: String
     let category: String

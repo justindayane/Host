@@ -8,8 +8,8 @@
 import Combine
 import SwiftUI
 
-struct TodayMealsView: View {
-    @StateObject var store = MenuStore()
+struct DailySpecialView: View {
+    @StateObject var store = DailySpecialStore()
     @State private var selectedDate = Date()
 
     var body: some View {
@@ -50,5 +50,5 @@ struct TodayMealsView: View {
 }
 
 #Preview {
-    TodayMealsView()
+    DailySpecialView()
 }
