@@ -56,3 +56,21 @@ struct DailySpecialItem: Decodable, Identifiable {
         case category
     }
 }
+
+// New Approach
+struct CycleDay {
+    let day: Int
+    let breakfast: [CycleMenuItem]
+    let lunch: [CycleMenuItem]
+    let dinner: [CycleMenuItem]
+}
+
+struct CycleMenuItem {
+//    let id: UUID = UUID()
+    let name: String
+}
+
+struct CycleMenu {
+    let anchor: String
+    let days: [CycleDay]
+}
