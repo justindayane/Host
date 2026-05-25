@@ -1,0 +1,366 @@
+{
+  "anchor": "2026-05-17",
+  "days": [
+    {
+      "day": 1,
+      "breakfast": [
+        { "name": "Omelet" },
+        { "name": "Home Fries" },
+        { "name": "Turkey Sausage Patty" },
+        { "name": "Cheerios" },
+        { "name": "Vanilla Cream of Wheat" },
+        { "name": "No Alt Cups & Bowls" }
+      ],
+      "lunch": [
+        { "name": "Cream of Mushroom" },
+        { "name": "BBQ Chicken" },
+        { "name": "California Veg Blend" },
+        { "name": "Coconut Rice & Beans" },
+        { "name": "Vegan Korean BBQ Chikn" },
+        { "name": "Sauteed Snow Peas" },
+        { "name": "Brown Rice" }
+      ],
+      "dinner": [
+        { "name": "Swedish Meatballs" },
+        { "name": "Roasted Carrots" },
+        { "name": "Mashed Potatoes" },
+        { "name": "Indian Dahl" },
+        { "name": "Jasmine Rice" }
+      ]
+    },
+    {
+      "day": 2,
+      "breakfast": [
+        { "name": "Texas French Toast" },
+        { "name": "Home Fries" },
+        { "name": "Chicken Apple Sausage" },
+        { "name": "Raisin Bran" },
+        { "name": "Apple Cinnamon Oatmeal" }
+      ],
+      "lunch": [
+        { "name": "Minestrone" },
+        { "name": "Chicken Noodle" },
+        { "name": "Rigatoni (Turkey) Bolognese" },
+        { "name": "Sauteed Broccoli" },
+        { "name": "Potato Crusted Tilapia in Lemon Caper Sauce" },
+        { "name": "Roasted Brussel Sprouts" },
+        { "name": "Herb Quinoa" }
+      ],
+      "dinner": [
+        { "name": "Lemon Oregano Baked Chicken" },
+        { "name": "Asian Veg Blend" },
+        { "name": "Roasted Lemon Potatoes" },
+        { "name": "Singapore Noodles" }
+      ]
+    },
+    {
+      "day": 3,
+      "breakfast": [
+        { "name": "Veggie Egg Bites" },
+        { "name": "Mangu" },
+        { "name": "Pork Sausage Patty" },
+        { "name": "Apple Cinnamon Oatmeal" },
+        { "name": "Vanilla Cream of Wheat" },
+        { "name": "Chia & Fruit" }
+      ],
+      "lunch": [
+        { "name": "Vegetable Barley" },
+        { "name": "Eggplant Parmesan" },
+        { "name": "Sugar Snap Peas" },
+        { "name": "Pasta Marinara" },
+        { "name": "Mac & Cheese" },
+        { "name": "Caesar Side Salad" }
+      ],
+      "dinner": [
+        { "name": "Braised Beef Short Ribs with Demi Glaze" },
+        { "name": "Roasted Root Vegetables" },
+        { "name": "Miso Salmon" },
+        { "name": "Sugar Snap Peas" },
+        { "name": "Brown Rice" }
+      ]
+    },
+    {
+      "day": 4,
+      "breakfast": [
+        { "name": "Buttermilk Pancake" },
+        { "name": "Chicken Apple Sausage" },
+        { "name": "Cheerios" },
+        { "name": "Rice Krispies" },
+        { "name": "Plain Oatmeal" }
+      ],
+      "lunch": [
+        { "name": "Turkish Red Lentil Soup" },
+        { "name": "Chicken Noodle Soup" },
+        { "name": "Mediterranean Chicken" },
+        { "name": "Cut Green Beans" },
+        { "name": "Herb Couscous" },
+        { "name": "Pasta Marinara" },
+        { "name": "Spring Mix Side Salad" }
+      ],
+      "dinner": [
+        { "name": "Chicken Francese" },
+        { "name": "Roasted Carrots" },
+        { "name": "Yellow Rice" },
+        { "name": "Vegan Sweet & Sour Chikn" },
+        { "name": "Asian Veggie Blend" },
+        { "name": "Jasmine Rice" }
+      ]
+    },
+    {
+      "day": 5,
+      "breakfast": [
+        { "name": "Spanish Style Baked Eggs" },
+        { "name": "Hash Brown" },
+        { "name": "Chorizo" },
+        { "name": "Raisin Bran" },
+        { "name": "Vanilla Cream of Wheat" },
+        { "name": "No Alt Cups & Bowls" }
+      ],
+      "lunch": [
+        { "name": "Cream of Mushroom" },
+        { "name": "Turkish Red Lentil" },
+        { "name": "Rigatoni in Vodka Sauce" },
+        { "name": "Sauteed Broccoli" },
+        { "name": "Cuban Sandwich" },
+        { "name": "Russian Potato Salad" }
+      ],
+      "dinner": [
+        { "name": "Roasted Turkey" },
+        { "name": "Roasted Brussels" },
+        { "name": "Sweet Potato Mash" },
+        { "name": "Chickpeas & Vegetable Stew" },
+        { "name": "Herb Couscous" }
+      ]
+    },
+    {
+      "day": 6,
+      "breakfast": [
+        { "name": "Belgian Waffle" },
+        { "name": "Chicken Apple Sausage" },
+        { "name": "Apple Cinnamon Oatmeal" },
+        { "name": "Coconut Overnight Oats" }
+      ],
+      "lunch": [
+        { "name": "Chicken Noodle" },
+        { "name": "Pasta with Meatballs" },
+        { "name": "Seasoned Green Beans" },
+        { "name": "Teriyaki Salmon" },
+        { "name": "Brown Rice" }
+      ],
+      "dinner": [
+        { "name": "Fish Tacos" },
+        { "name": "Coconut Rice & Beans" },
+        { "name": "Vegan Korean BBQ Chikn" },
+        { "name": "Sauteed Snow Peas" },
+        { "name": "Brown Rice" }
+      ]
+    },
+    {
+      "day": 7,
+      "breakfast": [
+        { "name": "Omelet" },
+        { "name": "Home Fries" },
+        { "name": "Turkey Sausage Patty" },
+        { "name": "Cheerios" },
+        { "name": "Rice Kispies" },
+        { "name": "Yogurt Parfait" }
+      ],
+      "lunch": [
+        { "name": "Tomato Bisque" },
+        { "name": "Chicken Noodle" },
+        { "name": "Chicken Piccata" },
+        { "name": "California Veg Blend" },
+        { "name": "Brown & Wild Rice Pilaf" },
+        { "name": "Meatball Hero" },
+        { "name": "Caesar Side Salad" }
+      ],
+      "dinner": [
+        { "name": "Roast Pork Tenderloin in Mushroom Sauce" },
+        { "name": "Roasted Sweet Potato" },
+        { "name": "Grilled Mahi Mahi" },
+        { "name": "Sauteed Broccoli" },
+        { "name": "Jasmine Rice" }
+      ]
+    },
+    {
+      "day": 8,
+      "breakfast": [
+        { "name": "Blueberry Filled Pancake" },
+        { "name": "Fruit Cup" },
+        { "name": "Chicken Apple Sausage" },
+        { "name": "Raisin Bran" },
+        { "name": "Vanilla Cream of Wheat" },
+        { "name": "No Alt Cups & Bowls" }
+      ],
+      "lunch": [
+        { "name": "Cream of Mushroom" },
+        { "name": "Herb-Crusted Cod in Roasted Tomato-Lemon Sauce" },
+        { "name": "Roasted Carrots" },
+        { "name": "Herb Quinoa" },
+        { "name": "Chicken Parm Hero" },
+        { "name": "Spring Mix Side Salad" }
+      ],
+      "dinner": [
+        { "name": "Spanish Stewed Chicken" },
+        { "name": "Sauteed Broccoli" },
+        { "name": "Yellow Rice" },
+        { "name": "Cheeseburger" },
+        { "name": "L/T/P" },
+        { "name": "Chickpea Salad" }
+      ]
+    },
+    {
+      "day": 9,
+      "breakfast": [
+        { "name": "Veg/Cheese Quiche" },
+        { "name": "Turkey Sausage Patty" },
+        { "name": "Apple Cinnamon Oatmeal" },
+        { "name": "Apple Cinnamon Oatmeal" },
+        { "name": "No Alt Cups & Bowls" }
+      ],
+      "lunch": [
+        { "name": "Minestrone" },
+        { "name": "Chicken Noodle Soup" },
+        { "name": "Swedish Meetballs" },
+        { "name": "Seasoned Green" },
+        { "name": "Mashed Potato" },
+        { "name": "Mac & Cheese" },
+        { "name": "Season Green Beans" }
+      ],
+      "dinner": [
+        { "name": "Sancocho" },
+        { "name": "Basmati Rice" },
+        { "name": "Spanish Stewed Beans with White Rice" },
+        { "name": "Sweet Plantains" }
+      ]
+    },
+    {
+      "day": 10,
+      "breakfast": [
+        { "name": "Texas French Toast" },
+        { "name": "Chicken Apple Sausage" },
+        { "name": "Cheerios" },
+        { "name": "Rice Krispies" },
+        { "name": "Chia & Fruit" }
+      ],
+      "lunch": [
+        { "name": "Vegetable Barley" },
+        { "name": "Chicken Noodle" },
+        { "name": "Roast Pork Tenderloin" },
+        { "name": "Roasted Cauliflower" },
+        { "name": "Sweet Potato Mash" },
+        { "name": "Indian Dahl" },
+        { "name": "Sauteed Broccoli" },
+        { "name": "Jasmine Rice" }
+      ],
+      "dinner": [
+        { "name": "Southwest Chikn with Corn Tortilla/Guac" },
+        { "name": "Coconut Rice & Beans" },
+        { "name": "Rigatoni Bolognese" },
+        { "name": "Caesar Salad" }
+      ]
+    },
+    {
+      "day": 11,
+      "breakfast": [
+        { "name": "Spanish Tortilla" },
+        { "name": "Fruit Cup" },
+        { "name": "Pork Sausage" },
+        { "name": "Raisin Bran" },
+        { "name": "Rice Chex" },
+        { "name": "Plain Oatmeal" }
+      ],
+      "lunch": [
+        { "name": "Turkish Lentil Soup" },
+        { "name": "Chicken Noodle Soup" },
+        { "name": "Chicken (cutlet) Parmesan" },
+        { "name": "Mixed Vegetables (Cali-Blend)" },
+        { "name": "Pasta Marinara (Rigatoni)" },
+        { "name": "Caesar Side Salad" }
+      ],
+      "dinner": [
+        { "name": "Braised Short Ribs with Demi Glaze" },
+        { "name": "Roasted Brussel Sprouts" },
+        { "name": "Mashed Potatoes" },
+        { "name": "Vegetable & Chickpea Stew" },
+        { "name": "Brown Rice" }
+      ]
+    },
+    {
+      "day": 12,
+      "breakfast": [
+        { "name": "Belgian Waffle" },
+        { "name": "Chicken Apple Sausage" },
+        { "name": "Apple Cinnamon Oatmeal" },
+        { "name": "Vanilla Cream of Wheat" },
+        { "name": "No Alt Cups & Bowls" }
+      ],
+      "lunch": [
+        { "name": "Cream of Mushroom" },
+        { "name": "Grilled Mahi Mahi" },
+        { "name": "Roasted Root Vegetables" },
+        { "name": "Cuban Sandwich" },
+        { "name": "Russian Potato Salad" }
+      ],
+      "dinner": [
+        { "name": "Roasted Turkey" },
+        { "name": "Seasoned Green Beans" },
+        { "name": "Roasted Sweet Potatoes" },
+        { "name": "Vermicelli Veg Stir Fry" }
+      ]
+    },
+    {
+      "day": 13,
+      "breakfast": [
+        { "name": "Tex-Mex Omelet (with Queso Sauce & Pico de gallo)" },
+        { "name": "Home Fries" },
+        { "name": "Turkey Sausage Patty" },
+        { "name": "Cheerios" },
+        { "name": "Rice Krispies" },
+        { "name": "Coconut Overnight Oats" }
+      ],
+      "lunch": [
+        { "name": "Chicken Noodle Soup" },
+        { "name": "Chicken Francese" },
+        { "name": "Sauteed Snow Peas & Peppers" },
+        { "name": "Lemon Roasted Potatoes" },
+        { "name": "Cheeseburger" },
+        { "name": "L/T/P" },
+        { "name": "Chickpea Salad" }
+      ],
+      "dinner": [
+        { "name": "Flounder Provencal" },
+        { "name": "Sauteed Broccoli" },
+        { "name": "Brown & Wild Rice Pilaf" },
+        { "name": "Rigatoni in Vodka Sauce" },
+        { "name": "Caesar Salad" }
+      ]
+    },
+    {
+      "day": 14,
+      "breakfast": [
+        { "name": "Blueberry Filled Pancakes" },
+        { "name": "Chicken Apple Sausage" },
+        { "name": "Raisin Bran" },
+        { "name": "Rice Chex" },
+        { "name": "Yogurt Parfait" }
+      ],
+      "lunch": [
+        { "name": "Tomato Bisque" },
+        { "name": "Sauteed Chicken in Garlic Sauce" },
+        { "name": "Asian Veg Blend" },
+        { "name": "Jasmine Rice" },
+        { "name": "Teriyaki Salmon" },
+        { "name": "Sugar Snap Peas" },
+        { "name": "Brown Rice" }
+      ],
+      "dinner": [
+        { "name": "Beef & Root Vegetable Stew" },
+        { "name": "Polenta" },
+        { "name": "Eggplant Parm" },
+        { "name": "Seasoned Green Beans" },
+        { "name": "Pasta Marinara (Orecchiette)" }
+      ]
+    }
+  ]
+}
