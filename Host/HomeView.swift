@@ -79,7 +79,7 @@ struct HomeView: View {
             ScrollView {
                 VStack {
                     NavigationLink(destination: MenuView()) {
-                        LargeCard(title: "Food", imageName: "food",description: "This is where all the food resides")
+                        LargeCard(title: "Menu Admin", imageName: "food",description: "This is where all the food resides")
                     }
 
                     HStack {
