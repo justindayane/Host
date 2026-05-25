@@ -14,6 +14,7 @@
 		3E96FAED2FC37D7A0001754D /* DailySpecialView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E96FAC32FC37D7A0001754D /* DailySpecialView.swift */; };
 		3E96FAEE2FC37D7A0001754D /* DecisionHistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E96FAC42FC37D7A0001754D /* DecisionHistoryView.swift */; };
 		3E96FAEF2FC37D7A0001754D /* DefaultTrayGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E96FAC52FC37D7A0001754D /* DefaultTrayGenerator.swift */; };
+		3E96FAF02FC37D7A0001754D /* DietKitIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E96FAC62FC37D7A0001754D /* DietKitIndicator.swift */; };
 		3E96FAF32FC37D7A0001754D /* ItemExplanationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E96FACA2FC37D7A0001754D /* ItemExplanationView.swift */; };
 		3E96FAF42FC37D7A0001754D /* ItemSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E96FACB2FC37D7A0001754D /* ItemSelectionView.swift */; };
 		3E96FAF52FC37D7A0001754D /* ItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E96FACC2FC37D7A0001754D /* ItemView.swift */; };
@@ -51,6 +52,7 @@
 		3E96FAC32FC37D7A0001754D /* DailySpecialView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailySpecialView.swift; sourceTree = "<group>"; };
 		3E96FAC42FC37D7A0001754D /* DecisionHistoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DecisionHistoryView.swift; sourceTree = "<group>"; };
 		3E96FAC52FC37D7A0001754D /* DefaultTrayGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultTrayGenerator.swift; sourceTree = "<group>"; };
+		3E96FAC62FC37D7A0001754D /* DietKitIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DietKitIndicator.swift; sourceTree = "<group>"; };
 		3E96FACA2FC37D7A0001754D /* ItemExplanationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemExplanationView.swift; sourceTree = "<group>"; };
 		3E96FACB2FC37D7A0001754D /* ItemSelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemSelectionView.swift; sourceTree = "<group>"; };
 		3E96FACC2FC37D7A0001754D /* ItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemView.swift; sourceTree = "<group>"; };
@@ -150,6 +152,7 @@
 				3E96FAD12FC37D7A0001754D /* MenuItemRow.swift */,
 				3E96FAD32FC37D7A0001754D /* MenuRow.swift */,
 				3E96FAD72FC37D7A0001754D /* RulesEngine.swift */,
+				3E96FAC62FC37D7A0001754D /* DietKitIndicator.swift */,
 			);
 			path = DecisionEngine;
 			sourceTree = "<group>";
@@ -297,6 +300,7 @@
 				3E96FAED2FC37D7A0001754D /* DailySpecialView.swift in Sources */,
 				3E96FAEE2FC37D7A0001754D /* DecisionHistoryView.swift in Sources */,
 				3E96FAEF2FC37D7A0001754D /* DefaultTrayGenerator.swift in Sources */,
+				3E96FAF02FC37D7A0001754D /* DietKitIndicator.swift in Sources */,
 				3E96FAF32FC37D7A0001754D /* ItemExplanationView.swift in Sources */,
 				3E96FAF42FC37D7A0001754D /* ItemSelectionView.swift in Sources */,
 				3E96FAF52FC37D7A0001754D /* ItemView.swift in Sources */,
