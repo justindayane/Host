@@ -174,14 +174,22 @@
 				3E96FAAD2FC37D7A0001754D /* AutoTrayModels.swift */,
 				3E96FAB02FC37D7A0001754D /* DecisionLog.swift */,
 				3E96FAB12FC37D7A0001754D /* EvaluationModels.swift */,
-				3E96FAB32FC37D7A0001754D /* LowCarbRule.swift */,
-				3E96FAB42FC37D7A0001754D /* LowSodiumRule.swift */,
+				3E96FB0E2FC3F8170001754D /* Rules */,
 				3E96FAB72FC37D7A0001754D /* Rule.swift */,
 				3E96FAB82FC37D7A0001754D /* RuleFactory.swift */,
 				3E96FAB92FC37D7A0001754D /* RuleResult.swift */,
-				3E96FABA2FC37D7A0001754D /* VegetarianRule.swift */,
 			);
 			path = DecisionEngine;
+			sourceTree = "<group>";
+		};
+		3E96FB0E2FC3F8170001754D /* Rules */ = {
+			isa = PBXGroup;
+			children = (
+				3E96FAB32FC37D7A0001754D /* LowCarbRule.swift */,
+				3E96FAB42FC37D7A0001754D /* LowSodiumRule.swift */,
+				3E96FABA2FC37D7A0001754D /* VegetarianRule.swift */,
+			);
+			path = Rules;
 			sourceTree = "<group>";
 		};
 		3EBB98412EA1C55900A71481 = {
