@@ -159,25 +159,10 @@
 		3E96FB0D2FC3EF480001754D /* DecisionEngine */ = {
 			isa = PBXGroup;
 			children = (
-				3E96FAD92FC37D7A0001754D /* TrayDetailView.swift */,
-				3E96FADA2FC37D7A0001754D /* TrayRowView.swift */,
-				3E96FADB2FC37D7A0001754D /* TraysListView.swift */,
-				3E96FABF2FC37D7A0001754D /* CreateTrayView.swift */,
-				3E96FAC42FC37D7A0001754D /* DecisionHistoryView.swift */,
-				3E96FAC52FC37D7A0001754D /* DefaultTrayGenerator.swift */,
-				3E96FACA2FC37D7A0001754D /* ItemExplanationView.swift */,
-				3E96FACB2FC37D7A0001754D /* ItemSelectionView.swift */,
-				3E96FAD12FC37D7A0001754D /* MenuItemRow.swift */,
-				3E96FAD32FC37D7A0001754D /* MenuRow.swift */,
-				3E96FAD72FC37D7A0001754D /* RulesEngine.swift */,
-				3E96FAC62FC37D7A0001754D /* DietKitIndicator.swift */,
-				3E96FAAD2FC37D7A0001754D /* AutoTrayModels.swift */,
-				3E96FAB02FC37D7A0001754D /* DecisionLog.swift */,
-				3E96FAB12FC37D7A0001754D /* EvaluationModels.swift */,
+				3E96FB0F2FC3FB250001754D /* UI */,
+				3E96FB102FC3FB400001754D /* Core */,
+				3E96FB112FC3FC2E0001754D /* Domain */,
 				3E96FB0E2FC3F8170001754D /* Rules */,
-				3E96FAB72FC37D7A0001754D /* Rule.swift */,
-				3E96FAB82FC37D7A0001754D /* RuleFactory.swift */,
-				3E96FAB92FC37D7A0001754D /* RuleResult.swift */,
 			);
 			path = DecisionEngine;
 			sourceTree = "<group>";
@@ -188,8 +173,47 @@
 				3E96FAB32FC37D7A0001754D /* LowCarbRule.swift */,
 				3E96FAB42FC37D7A0001754D /* LowSodiumRule.swift */,
 				3E96FABA2FC37D7A0001754D /* VegetarianRule.swift */,
+				3E96FAB72FC37D7A0001754D /* Rule.swift */,
+				3E96FAB82FC37D7A0001754D /* RuleFactory.swift */,
+				3E96FAB92FC37D7A0001754D /* RuleResult.swift */,
 			);
 			path = Rules;
+			sourceTree = "<group>";
+		};
+		3E96FB0F2FC3FB250001754D /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				3E96FAD92FC37D7A0001754D /* TrayDetailView.swift */,
+				3E96FADA2FC37D7A0001754D /* TrayRowView.swift */,
+				3E96FADB2FC37D7A0001754D /* TraysListView.swift */,
+				3E96FABF2FC37D7A0001754D /* CreateTrayView.swift */,
+				3E96FAC42FC37D7A0001754D /* DecisionHistoryView.swift */,
+				3E96FACA2FC37D7A0001754D /* ItemExplanationView.swift */,
+				3E96FACB2FC37D7A0001754D /* ItemSelectionView.swift */,
+				3E96FAD12FC37D7A0001754D /* MenuItemRow.swift */,
+				3E96FAD32FC37D7A0001754D /* MenuRow.swift */,
+				3E96FAC62FC37D7A0001754D /* DietKitIndicator.swift */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		3E96FB102FC3FB400001754D /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				3E96FAC52FC37D7A0001754D /* DefaultTrayGenerator.swift */,
+				3E96FAD72FC37D7A0001754D /* RulesEngine.swift */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		3E96FB112FC3FC2E0001754D /* Domain */ = {
+			isa = PBXGroup;
+			children = (
+				3E96FAAD2FC37D7A0001754D /* AutoTrayModels.swift */,
+				3E96FAB02FC37D7A0001754D /* DecisionLog.swift */,
+				3E96FAB12FC37D7A0001754D /* EvaluationModels.swift */,
+			);
+			path = Domain;
 			sourceTree = "<group>";
 		};
 		3EBB98412EA1C55900A71481 = {
