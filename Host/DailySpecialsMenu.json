@@ -1,5 +1,5 @@
 {
-  "anchor": "2026-05-17",
+  "anchor": "2026-05-24",
   "days": [
     {
       "day": 1,
@@ -8,8 +8,7 @@
         { "name": "Home Fries" },
         { "name": "Turkey Sausage Patty" },
         { "name": "Cheerios" },
-        { "name": "Vanilla Cream of Wheat" },
-        { "name": "No Alt Cups & Bowls" }
+        { "name": "Vanilla Cream of Wheat" }
       ],
       "lunch": [
         { "name": "Cream of Mushroom" },
@@ -113,8 +112,7 @@
         { "name": "Hash Brown" },
         { "name": "Chorizo" },
         { "name": "Raisin Bran" },
-        { "name": "Vanilla Cream of Wheat" },
-        { "name": "No Alt Cups & Bowls" }
+        { "name": "Vanilla Cream of Wheat" }
       ],
       "lunch": [
         { "name": "Cream of Mushroom" },
@@ -162,7 +160,7 @@
         { "name": "Home Fries" },
         { "name": "Turkey Sausage Patty" },
         { "name": "Cheerios" },
-        { "name": "Rice Kispies" },
+        { "name": "Rice Krispies" },
         { "name": "Yogurt Parfait" }
       ],
       "lunch": [
@@ -185,12 +183,11 @@
     {
       "day": 8,
       "breakfast": [
-        { "name": "Blueberry Filled Pancake" },
+        { "name": "Blueberry Filled Pancakes" },
         { "name": "Fruit Cup" },
         { "name": "Chicken Apple Sausage" },
         { "name": "Raisin Bran" },
-        { "name": "Vanilla Cream of Wheat" },
-        { "name": "No Alt Cups & Bowls" }
+        { "name": "Vanilla Cream of Wheat" }
       ],
       "lunch": [
         { "name": "Cream of Mushroom" },
@@ -214,18 +211,15 @@
       "breakfast": [
         { "name": "Veg/Cheese Quiche" },
         { "name": "Turkey Sausage Patty" },
-        { "name": "Apple Cinnamon Oatmeal" },
-        { "name": "Apple Cinnamon Oatmeal" },
-        { "name": "No Alt Cups & Bowls" }
+        { "name": "Apple Cinnamon Oatmeal" }
       ],
       "lunch": [
         { "name": "Minestrone" },
         { "name": "Chicken Noodle Soup" },
-        { "name": "Swedish Meetballs" },
-        { "name": "Seasoned Green" },
+        { "name": "Swedish Meatballs" },
+        { "name": "Seasoned Green Beans" },
         { "name": "Mashed Potato" },
-        { "name": "Mac & Cheese" },
-        { "name": "Season Green Beans" }
+        { "name": "Mac & Cheese" }
       ],
       "dinner": [
         { "name": "Sancocho" },
@@ -271,7 +265,7 @@
         { "name": "Plain Oatmeal" }
       ],
       "lunch": [
-        { "name": "Turkish Lentil Soup" },
+        { "name": "Turkish Red Lentil Soup" },
         { "name": "Chicken Noodle Soup" },
         { "name": "Chicken (cutlet) Parmesan" },
         { "name": "Mixed Vegetables (Cali-Blend)" },
@@ -292,8 +286,7 @@
         { "name": "Belgian Waffle" },
         { "name": "Chicken Apple Sausage" },
         { "name": "Apple Cinnamon Oatmeal" },
-        { "name": "Vanilla Cream of Wheat" },
-        { "name": "No Alt Cups & Bowls" }
+        { "name": "Vanilla Cream of Wheat" }
       ],
       "lunch": [
         { "name": "Cream of Mushroom" },

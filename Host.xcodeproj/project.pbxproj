@@ -40,6 +40,7 @@
 		3E96FB002FC37D7A0001754D /* TrayDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E96FAD92FC37D7A0001754D /* TrayDetailView.swift */; };
 		3E96FB012FC37D7A0001754D /* TrayRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E96FADA2FC37D7A0001754D /* TrayRowView.swift */; };
 		3E96FB022FC37D7A0001754D /* TraysListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E96FADB2FC37D7A0001754D /* TraysListView.swift */; };
+		3EFCC2D42FC4CFE5007ECA55 /* CycleMenuStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EFCC2D32FC4CFD7007ECA55 /* CycleMenuStore.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -88,6 +89,7 @@
 		3E96FADA2FC37D7A0001754D /* TrayRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrayRowView.swift; sourceTree = "<group>"; };
 		3E96FADB2FC37D7A0001754D /* TraysListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TraysListView.swift; sourceTree = "<group>"; };
 		3EBB984A2EA1C55900A71481 /* Host.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Host.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		3EFCC2D32FC4CFD7007ECA55 /* CycleMenuStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CycleMenuStore.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -134,6 +136,7 @@
 		3E96FB0B2FC37F690001754D /* DailySpecials */ = {
 			isa = PBXGroup;
 			children = (
+				3EFCC2D32FC4CFD7007ECA55 /* CycleMenuStore.swift */,
 				3E96FAC02FC37D7A0001754D /* DailySpecialModels.swift */,
 				3E96FAC22FC37D7A0001754D /* DailySpecialStore.swift */,
 				3E96FAC32FC37D7A0001754D /* DailySpecialView.swift */,
@@ -362,6 +365,7 @@
 				3E96FAE72FC37D7A0001754D /* RuleFactory.swift in Sources */,
 				3E96FAE82FC37D7A0001754D /* RuleResult.swift in Sources */,
 				3E96FAE92FC37D7A0001754D /* VegetarianRule.swift in Sources */,
+				3EFCC2D42FC4CFE5007ECA55 /* CycleMenuStore.swift in Sources */,
 				3E96FAEA2FC37D7A0001754D /* CreateTrayView.swift in Sources */,
 				3E96FAEB2FC37D7A0001754D /* DailySpecialModels.swift in Sources */,
 				3E96FAEC2FC37D7A0001754D /* DailySpecialStore.swift in Sources */,

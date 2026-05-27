@@ -9,7 +9,8 @@ import Combine
 import SwiftUI
 
 struct DailySpecialView: View {
-    @StateObject var store = DailySpecialStore()
+//    @StateObject var store = DailySpecialStore() // Old Approch
+    @StateObject var store = CycleMenuStore() // New Approach
     @State private var selectedDate = Date()
 
     var body: some View {

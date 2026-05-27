@@ -58,19 +58,19 @@ struct DailySpecialItem: Decodable, Identifiable {
 }
 
 // New Approach
-struct CycleDay {
+struct CycleDay: Decodable {
     let day: Int
     let breakfast: [CycleMenuItem]
     let lunch: [CycleMenuItem]
     let dinner: [CycleMenuItem]
 }
 
-struct CycleMenuItem {
-//    let id: UUID = UUID()
+struct CycleMenuItem: Decodable, Identifiable {
+    let id: UUID = UUID()
     let name: String
 }
 
-struct CycleMenu {
+struct CycleMenu: Decodable {
     let anchor: String
     let days: [CycleDay]
 }
