@@ -78,22 +78,22 @@ struct HomeView: View {
         NavigationStack {
             ScrollView {
                 VStack {
-                    NavigationLink(destination: MenuView()) {
-                        LargeCard(title: "Menu Admin", imageName: "food",description: "This is where all the food resides")
+                    NavigationLink(destination: TraysListView()) {
+                        LargeCard(title: "Trays ", imageName: "food",description: "The Decision Engine (Core)")
                     }
 
                     HStack {
                         LazyVGrid(columns: columns) {
-                            NavigationLink(destination: Text("TBD: To Be Developed")) {
-                                SmallCard(title: "Units", imageName: "machinev")
+                            NavigationLink(destination: MenuBrowserView()) {
+                                SmallCard(title: "Menu Browser", imageName: "machinev")
                             }
-                            NavigationLink(destination: TraysListView()) {
-                                SmallCard(title: "Trays ...", imageName: "tray")
+                            NavigationLink(destination: DailySpecialView()) {
+                                SmallCard(title: "Daily Specials", imageName: "tray")
                             }
                         }
                     }
-                    NavigationLink(destination: DailySpecialView()) {
-                        LargeCard(title: "Specials", imageName: "units",description: "Daily list of specials")
+                    NavigationLink(destination: MenuView()) {
+                        LargeCard(title: "Management", imageName: "units",description: "Add and edit menu items")
                     }
                     HStack {
                         LazyVGrid(columns: columns) {
@@ -106,11 +106,8 @@ struct HomeView: View {
                             NavigationLink(destination: Text("TBD: To Be Developed")) {
                                 SmallCard(title: "Units", imageName: "drinks")
                             }
-                            NavigationLink(destination: MenuBrowserView()) {
-                                SmallCard(title: "Menu New", imageName: "meal")
-                            }
                         }
-                        }
+                    }
                 }
                 .padding()
             }
