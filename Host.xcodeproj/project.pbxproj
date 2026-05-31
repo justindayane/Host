@@ -41,6 +41,11 @@
 		3E96FB012FC37D7A0001754D /* TrayRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E96FADA2FC37D7A0001754D /* TrayRowView.swift */; };
 		3E96FB022FC37D7A0001754D /* TraysListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E96FADB2FC37D7A0001754D /* TraysListView.swift */; };
 		3EFCC2D42FC4CFE5007ECA55 /* CycleMenuStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EFCC2D32FC4CFD7007ECA55 /* CycleMenuStore.swift */; };
+		3EFCC2D82FCA307F007ECA55 /* ParsedTrayRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EFCC2D72FCA304F007ECA55 /* ParsedTrayRequest.swift */; };
+		3EFCC2DA2FCC7EB4007ECA55 /* TrayRequestExtraction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EFCC2D92FCC7EAA007ECA55 /* TrayRequestExtraction.swift */; };
+		3EFCC2DC2FCC82D0007ECA55 /* TrayRequestMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EFCC2DB2FCC82CA007ECA55 /* TrayRequestMapper.swift */; };
+		3EFCC2DE2FCC945A007ECA55 /* FakeTrayRequestParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EFCC2DD2FCC944E007ECA55 /* FakeTrayRequestParser.swift */; };
+		3EFCC2E02FCC9CD7007ECA55 /* AIParsingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EFCC2DF2FCC9CD7007ECA55 /* AIParsingView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -90,6 +95,11 @@
 		3E96FADB2FC37D7A0001754D /* TraysListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TraysListView.swift; sourceTree = "<group>"; };
 		3EBB984A2EA1C55900A71481 /* Host.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Host.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3EFCC2D32FC4CFD7007ECA55 /* CycleMenuStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CycleMenuStore.swift; sourceTree = "<group>"; };
+		3EFCC2D72FCA304F007ECA55 /* ParsedTrayRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParsedTrayRequest.swift; sourceTree = "<group>"; };
+		3EFCC2D92FCC7EAA007ECA55 /* TrayRequestExtraction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrayRequestExtraction.swift; sourceTree = "<group>"; };
+		3EFCC2DB2FCC82CA007ECA55 /* TrayRequestMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrayRequestMapper.swift; sourceTree = "<group>"; };
+		3EFCC2DD2FCC944E007ECA55 /* FakeTrayRequestParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeTrayRequestParser.swift; sourceTree = "<group>"; };
+		3EFCC2DF2FCC9CD7007ECA55 /* AIParsingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AIParsingView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -126,6 +136,7 @@
 		3E96FB0A2FC37F5F0001754D /* Features */ = {
 			isa = PBXGroup;
 			children = (
+				3EFCC2D62FCA303D007ECA55 /* AIParsing */,
 				3E96FB0D2FC3EF480001754D /* DecisionEngine */,
 				3E96FB0C2FC3DF470001754D /* MenuAdmin */,
 				3E96FB0B2FC37F690001754D /* DailySpecials */,
@@ -237,6 +248,18 @@
 				3E1692C92FB76D7900EDFAD9 /* HostTests.xctest */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		3EFCC2D62FCA303D007ECA55 /* AIParsing */ = {
+			isa = PBXGroup;
+			children = (
+				3EFCC2DB2FCC82CA007ECA55 /* TrayRequestMapper.swift */,
+				3EFCC2DD2FCC944E007ECA55 /* FakeTrayRequestParser.swift */,
+				3EFCC2D92FCC7EAA007ECA55 /* TrayRequestExtraction.swift */,
+				3EFCC2D72FCA304F007ECA55 /* ParsedTrayRequest.swift */,
+				3EFCC2DF2FCC9CD7007ECA55 /* AIParsingView.swift */,
+			);
+			path = AIParsing;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -372,12 +395,16 @@
 				3E96FAED2FC37D7A0001754D /* DailySpecialView.swift in Sources */,
 				3E96FAEE2FC37D7A0001754D /* DecisionHistoryView.swift in Sources */,
 				3E96FAEF2FC37D7A0001754D /* DefaultTrayGenerator.swift in Sources */,
+				3EFCC2DA2FCC7EB4007ECA55 /* TrayRequestExtraction.swift in Sources */,
+				3EFCC2E02FCC9CD7007ECA55 /* AIParsingView.swift in Sources */,
+				3EFCC2DC2FCC82D0007ECA55 /* TrayRequestMapper.swift in Sources */,
 				3E96FAF02FC37D7A0001754D /* DietKitIndicator.swift in Sources */,
 				3E96FAF32FC37D7A0001754D /* ItemExplanationView.swift in Sources */,
 				3E96FAF42FC37D7A0001754D /* ItemSelectionView.swift in Sources */,
 				3E96FAF52FC37D7A0001754D /* ItemView.swift in Sources */,
 				3E96FAF62FC37D7A0001754D /* MenuAddView.swift in Sources */,
 				3E96FAF72FC37D7A0001754D /* MenuBrowserView.swift in Sources */,
+				3EFCC2DE2FCC945A007ECA55 /* FakeTrayRequestParser.swift in Sources */,
 				3E96FAF82FC37D7A0001754D /* MenuDataProvider.swift in Sources */,
 				3E96FAF92FC37D7A0001754D /* MenuItemRow.swift in Sources */,
 				3E96FAFA2FC37D7A0001754D /* MenuItemStore.swift in Sources */,
@@ -386,6 +413,7 @@
 				3E96FAFD2FC37D7A0001754D /* MenuViewModel.swift in Sources */,
 				3E96FAFE2FC37D7A0001754D /* MultiSelectToggle.swift in Sources */,
 				3E96FAFF2FC37D7A0001754D /* RulesEngine.swift in Sources */,
+				3EFCC2D82FCA307F007ECA55 /* ParsedTrayRequest.swift in Sources */,
 				3E96FB002FC37D7A0001754D /* TrayDetailView.swift in Sources */,
 				3E96FB012FC37D7A0001754D /* TrayRowView.swift in Sources */,
 				3E96FB022FC37D7A0001754D /* TraysListView.swift in Sources */,
