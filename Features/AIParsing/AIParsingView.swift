@@ -11,7 +11,7 @@ struct AIParsingView: View {
     @State private var rawText: String = ""
     @State private var result: ParsedTrayRequest?
     
-    private let parser = FakeTrayRequestParser()
+    private let parser: any TrayRequestParsing = FakeTrayRequestParser()
     private let mapper = TrayRequestMapper()
     
     var body: some View {
@@ -24,8 +24,10 @@ struct AIParsingView: View {
         //    - assigns the result to self.result
         
         Button("Parse Request") {
-            let extraction = parser.parse(rawText: rawText)
-            self.result = mapper.map(extraction: extraction, rawText: rawText)
+            Task {
+                let extraction = await parser.parse(rawText: rawText)
+                self.result = mapper.map(extraction: extraction, rawText: rawText)
+            }
         }
         
         // 3. If result is not nil, show:

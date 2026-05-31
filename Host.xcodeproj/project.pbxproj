@@ -46,6 +46,7 @@
 		3EFCC2DC2FCC82D0007ECA55 /* TrayRequestMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EFCC2DB2FCC82CA007ECA55 /* TrayRequestMapper.swift */; };
 		3EFCC2DE2FCC945A007ECA55 /* FakeTrayRequestParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EFCC2DD2FCC944E007ECA55 /* FakeTrayRequestParser.swift */; };
 		3EFCC2E02FCC9CD7007ECA55 /* AIParsingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EFCC2DF2FCC9CD7007ECA55 /* AIParsingView.swift */; };
+		3EFCC2E22FCCB492007ECA55 /* TrayRequestParsing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EFCC2E12FCCB482007ECA55 /* TrayRequestParsing.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -100,6 +101,7 @@
 		3EFCC2DB2FCC82CA007ECA55 /* TrayRequestMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrayRequestMapper.swift; sourceTree = "<group>"; };
 		3EFCC2DD2FCC944E007ECA55 /* FakeTrayRequestParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeTrayRequestParser.swift; sourceTree = "<group>"; };
 		3EFCC2DF2FCC9CD7007ECA55 /* AIParsingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AIParsingView.swift; sourceTree = "<group>"; };
+		3EFCC2E12FCCB482007ECA55 /* TrayRequestParsing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrayRequestParsing.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -253,6 +255,7 @@
 		3EFCC2D62FCA303D007ECA55 /* AIParsing */ = {
 			isa = PBXGroup;
 			children = (
+				3EFCC2E12FCCB482007ECA55 /* TrayRequestParsing.swift */,
 				3EFCC2DB2FCC82CA007ECA55 /* TrayRequestMapper.swift */,
 				3EFCC2DD2FCC944E007ECA55 /* FakeTrayRequestParser.swift */,
 				3EFCC2D92FCC7EAA007ECA55 /* TrayRequestExtraction.swift */,
@@ -414,6 +417,7 @@
 				3E96FAFE2FC37D7A0001754D /* MultiSelectToggle.swift in Sources */,
 				3E96FAFF2FC37D7A0001754D /* RulesEngine.swift in Sources */,
 				3EFCC2D82FCA307F007ECA55 /* ParsedTrayRequest.swift in Sources */,
+				3EFCC2E22FCCB492007ECA55 /* TrayRequestParsing.swift in Sources */,
 				3E96FB002FC37D7A0001754D /* TrayDetailView.swift in Sources */,
 				3E96FB012FC37D7A0001754D /* TrayRowView.swift in Sources */,
 				3E96FB022FC37D7A0001754D /* TraysListView.swift in Sources */,

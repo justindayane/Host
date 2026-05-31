@@ -5,8 +5,8 @@
 //  Created by Justin Dayane  Gbadamassi on 5/31/26.
 //
 
-struct FakeTrayRequestParser {
-    func parse(rawText: String) -> TrayRequestExtraction {
+struct FakeTrayRequestParser: TrayRequestParsing {
+    func parse(rawText: String) async -> TrayRequestExtraction {
         // Ignore rawText for now
         // ...
         
