@@ -97,8 +97,8 @@ struct HomeView: View {
                     }
                     HStack {
                         LazyVGrid(columns: columns) {
-                            NavigationLink(destination: Text("TBD: To Be Developed")) {
-                                SmallCard(title: "Units", imageName: "fruits")
+                            NavigationLink(destination: AIParsingView()) {
+                                SmallCard(title: "AI Parsing", imageName: "fruits")
                             }
                             NavigationLink(destination: Text("TBD: To Be Developed")) {
                                 SmallCard(title: "Units", imageName: "veggie")
