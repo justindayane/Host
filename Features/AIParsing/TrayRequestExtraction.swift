@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct TrayRequestExtraction {
+struct TrayRequestExtraction: Decodable {
     let mealTimeText: String?
     let dishTypeText: String?
     let dietText: String?

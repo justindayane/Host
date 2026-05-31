@@ -11,7 +11,7 @@ struct AIParsingView: View {
     @State private var rawText: String = ""
     @State private var result: ParsedTrayRequest?
     
-    private let parser: any TrayRequestParsing = FakeTrayRequestParser()
+    private let parser: any TrayRequestParsing = OllamaTrayRequestParser()
     private let mapper = TrayRequestMapper()
     
     var body: some View {
