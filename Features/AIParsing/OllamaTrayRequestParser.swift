@@ -21,7 +21,7 @@ struct OllamaTrayRequestParser: TrayRequestParsing {
 
         Valid values for mealTimeText: breakfast, lunch, dinner
         Valid values for dishTypeText: main, side, beverage
-        Valid values for dietText: regular, cardiac, carbControl, carbControlCardiac, fluidRest, fiberRest
+        Valid values for dietText: regular, cardiac, renal, carbControl, carbControlCardiac, fluidRest, fiberRest
         
         A low sodium diet should map to cardiac
         

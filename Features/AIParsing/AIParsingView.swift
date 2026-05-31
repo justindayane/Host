@@ -10,11 +10,13 @@ import SwiftUI
 struct AIParsingView: View {
     @State private var rawText: String = ""
     @State private var result: ParsedTrayRequest?
+    @State private var isLoading: Bool = false
     
     private let parser: any TrayRequestParsing = OllamaTrayRequestParser()
     private let mapper = TrayRequestMapper()
     
     var body: some View {
+        
         // 1. A TextEditor for rawText input
         TextEditor(text: $rawText)
         
@@ -23,13 +25,19 @@ struct AIParsingView: View {
         //    - calls mapper.map(extraction:rawText:)
         //    - assigns the result to self.result
         
-        Button("Parse Request") {
-            Task {
-                let extraction = await parser.parse(rawText: rawText)
-                self.result = mapper.map(extraction: extraction, rawText: rawText)
+        if isLoading {
+            ProgressView()
+        } else {
+            Button("Parse Request") {
+                Task {
+                    isLoading = true
+                    let extraction = await parser.parse(rawText: rawText)
+                    self.result = mapper.map(extraction: extraction, rawText: rawText)
+                    isLoading = false
+                }
             }
+            .disabled(isLoading)
         }
-        
         // 3. If result is not nil, show:
         //    - the rawText
         //    - mealTime, dishType, diet (show the raw value or "not found")
