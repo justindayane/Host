@@ -12,7 +12,7 @@ struct OllamaTrayRequestParser: TrayRequestParsing {
     private let endpoint = URL(string: "http://localhost:11434/api/generate")!
     private let model = "llama3.2"
     
-    func parse(rawText: String) async -> TrayRequestExtraction {
+    func parse(rawText: String) async -> Result<TrayRequestExtraction, Error> {
         // 1. Build the prompt string
         let prompt = """
         Extract the meal time, dish type, and diet from the following text.
@@ -38,7 +38,7 @@ struct OllamaTrayRequestParser: TrayRequestParsing {
         
         do {
             // 3. Serialize the body to JSON Data using JSONSerialization
-            let bodyData = try! JSONSerialization.data(withJSONObject: body, options: [])
+            let bodyData = try JSONSerialization.data(withJSONObject: body, options: [])
             
             // 4. Build a URLRequest with:
             //    - method: POST
@@ -60,21 +60,25 @@ struct OllamaTrayRequestParser: TrayRequestParsing {
             
             // 7. Decode OllamaResponse.response string into TrayRequestExtraction
             guard let extractionData = decodedResponse.response.data(using: .utf8) else {
-                return TrayRequestExtraction(mealTimeText: nil, dishTypeText: nil, dietText: nil)
+                
+                return .failure(OllamaParserError.invalidResponseEncoding)
             }
             let extraction = try JSONDecoder().decode(TrayRequestExtraction.self, from: extractionData)
             
             // 8. Return the extraction, or a blank TrayRequestExtraction on failure
-            return extraction
+            return .success(extraction)
             
         } catch {
             print("Failed to send payload: \(error)")
+            return .failure(error)
         }
-        
-        return TrayRequestExtraction(mealTimeText: nil, dishTypeText: nil, dietText: nil)
     }
     
     
+}
+
+enum OllamaParserError: Error {
+    case invalidResponseEncoding
 }
 
 

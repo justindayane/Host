@@ -6,5 +6,5 @@
 //
 
 protocol TrayRequestParsing {
-    func parse(rawText: String) async -> TrayRequestExtraction
+    func parse(rawText: String) async -> Result<TrayRequestExtraction, Error>
 }

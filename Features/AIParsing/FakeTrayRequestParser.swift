@@ -6,11 +6,11 @@
 //
 
 struct FakeTrayRequestParser: TrayRequestParsing {
-    func parse(rawText: String) async -> TrayRequestExtraction {
+    func parse(rawText: String) async -> Result<TrayRequestExtraction, Error> {
         // Ignore rawText for now
         // ...
         
         // Return hardcoded TrayRequestExtraction
-        TrayRequestExtraction(mealTimeText: "breakfast", dishTypeText: "main", dietText: "regular")
+        .success(TrayRequestExtraction(mealTimeText: "breakfast", dishTypeText: "main", dietText: "regular"))
     }
 }

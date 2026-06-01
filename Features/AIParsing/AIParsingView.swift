@@ -11,7 +11,7 @@ struct AIParsingView: View {
     @State private var rawText: String = ""
     @State private var result: ParsedTrayRequest?
     @State private var isLoading: Bool = false
-    
+    @State private var errorMessage: String?
     private let parser: any TrayRequestParsing = OllamaTrayRequestParser()
     private let mapper = TrayRequestMapper()
     
@@ -20,6 +20,10 @@ struct AIParsingView: View {
         // 1. A TextEditor for rawText input
         TextEditor(text: $rawText)
         
+        // Error Message
+        if let errorMessage {
+            Text(errorMessage)
+        }
         // 2. A Button that:
         //    - calls parser.parse(rawText:)
         //    - calls mapper.map(extraction:rawText:)
@@ -31,8 +35,15 @@ struct AIParsingView: View {
             Button("Parse Request") {
                 Task {
                     isLoading = true
-                    let extraction = await parser.parse(rawText: rawText)
-                    self.result = mapper.map(extraction: extraction, rawText: rawText)
+                    errorMessage = nil
+                    result = nil
+                    let parserResult = await parser.parse(rawText: rawText)
+                    switch parserResult {
+                    case .success(let extraction):
+                        self.result = mapper.map(extraction: extraction, rawText: rawText)
+                    case .failure(let error):
+                        self.errorMessage = "\(error)"
+                    }
                     isLoading = false
                 }
             }
