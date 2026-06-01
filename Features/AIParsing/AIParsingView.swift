@@ -34,9 +34,15 @@ struct AIParsingView: View {
         } else {
             Button("Parse Request") {
                 Task {
-                    isLoading = true
                     errorMessage = nil
                     result = nil
+                    
+                    guard !rawText.trimmingCharacters(in: .whitespaces).isEmpty else {
+                        errorMessage = "Please enter some text."
+                        return
+                    }
+                    
+                    isLoading = true
                     let parserResult = await parser.parse(rawText: rawText)
                     switch parserResult {
                     case .success(let extraction):
