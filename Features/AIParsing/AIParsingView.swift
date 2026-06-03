@@ -15,6 +15,8 @@ struct AIParsingView: View {
     private let parser: any TrayRequestParsing = OllamaTrayRequestParser()
     private let mapper = TrayRequestMapper()
     
+    let onConfirm: (ParsedTrayRequest) -> Void
+    
     var body: some View {
         
         // 1. A TextEditor for rawText input
@@ -38,7 +40,7 @@ struct AIParsingView: View {
                     result = nil
                     
                     guard !rawText.trimmingCharacters(in: .whitespaces).isEmpty else {
-                        errorMessage = "Please enter some text."
+                        errorMessage = "Please enter a request."
                         return
                     }
                     
@@ -64,11 +66,18 @@ struct AIParsingView: View {
                 Text("MealTime: \(result.mealTime?.rawValue ?? "Not Found")")
                 Text("DishType: \(result.dishType?.rawValue ?? "Not Found")")
                 Text("Diet: \(result.diet?.rawValue ?? "Not Found")")
+                HStack {
+                    Button("Confirm") { onConfirm(result) }
+                    Button("Dismiss") {
+                        self.result = nil
+                        self.rawText = ""
+                    }
+                }
             }
         }
     }
 }
 
 #Preview {
-    AIParsingView()
+    AIParsingView(onConfirm: { _ in })
 }
