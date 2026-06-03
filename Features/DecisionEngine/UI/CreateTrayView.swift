@@ -76,6 +76,13 @@ struct CreateTrayView: View {
             }
         }
     }
+    
+    init(suggestedDiet: Diet? = nil, suggestedMealTime: MealTime? = nil, onComplete: @escaping (Tray) -> Void) {
+        _selectedDiet = State(initialValue: suggestedDiet ?? .regular)
+        _selectedMealTime = State(initialValue: suggestedMealTime ?? .lunch)
+        self.onComplete = onComplete
+        
+    }
 }
 
 #Preview {

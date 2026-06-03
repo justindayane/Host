@@ -12,6 +12,10 @@ struct TraysListView: View {
     @State private var showingCreateTray:Bool = false
     @StateObject private var history = DecisionHistory()
     
+    @State private var showingAIParsing: Bool = false
+    @State private var pendingParsedRequest: ParsedTrayRequest? = nil
+    
+    
     var body: some View {
         NavigationStack {
             Group {
@@ -25,38 +29,6 @@ struct TraysListView: View {
                     )
                 } else {
                     traysList
-//                    Button("Testsssss") {
-//                        let sodiumConstraint = Constraint.lowSodium
-//                        if let rule = RuleFactory.rule(for: sodiumConstraint) {
-//                            print("Created: \(rule.name)")
-//                            print("Type: \(type(of: rule))")
-//                        } else {
-//                            print("No rule for: \(sodiumConstraint.name)")
-//                        }
-//                        
-//                        let carbConstraint = Constraint.lowCarb
-//                        if let rule = RuleFactory.rule(for: carbConstraint) {
-//                            print("\nCreated: \(rule.name)")
-//                        } else {
-//                            print("\nNo rule for: \(carbConstraint.name)")
-//                        }
-//                        
-//                        // Test 3: Get rule for unimplemented constraint
-//                        let fatConstraint = Constraint.lowFat
-//                        if let rule = RuleFactory.rule(for: fatConstraint) {
-//                            print("\nCreated: \(rule.name)")
-//                        } else {
-//                            print("\nNo rule for: \(fatConstraint.name)")
-//                        }
-//                        
-//                        // Test 4: Get all rules for a diet
-//                        print("\n--- Cardiac Diet Rules ---")
-//                        let cardiacConstraints = Diet.cardiac.constraints
-//                        let cardiacRules = cardiacConstraints.compactMap { RuleFactory.rule(for: $0) }
-//                        print("Constraints: \(cardiacConstraints.map { $0.name })")
-//                        print("Rules created: \(cardiacRules.map { $0.name })")
-//                    }
-                    
                 }
             }
             .navigationTitle("Trays")
@@ -76,9 +48,24 @@ struct TraysListView: View {
                         Image(systemName: "list.bullet.clipboard")
                     }
                 }
+                ToolbarItem {
+                    Button("AI", systemImage: "wand.and.stars") {
+                        showingAIParsing = true
+                    }
+                }
             }
-            .sheet(isPresented: $showingCreateTray) {
-                CreateTrayView(onComplete: addTray)
+            .sheet(isPresented: $showingCreateTray, onDismiss: { pendingParsedRequest = nil }) {
+                CreateTrayView(suggestedDiet: pendingParsedRequest?.diet, suggestedMealTime: pendingParsedRequest?.mealTime, onComplete: addTray)
+            }
+            .sheet(isPresented: $showingAIParsing) {
+                AIParsingView { aiParsed in
+                    pendingParsedRequest = aiParsed
+                    showingAIParsing = false
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                        showingCreateTray = true
+                    }
+                }
+                
             }
         }
     }
