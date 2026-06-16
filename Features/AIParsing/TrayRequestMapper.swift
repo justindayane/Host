@@ -12,7 +12,7 @@ struct TrayRequestMapper {
     func map(extraction: TrayRequestExtraction, rawText: String) -> ParsedTrayRequest {
         
         var mealTime: MealTime?
-        var dishType: DishType?
+//        var dishType: DishType?
         var diet: Diet?
         
         // 1. Try to map mealTimeText to a MealTime
@@ -20,10 +20,10 @@ struct TrayRequestMapper {
             mealTime = MealTime(rawValue: mealTimeText.lowercased())
         }
         
-        // 2. Try to map dishTypeText to a DishType
-        if let dishTypeText = extraction.dishTypeText {
-            dishType = DishType(rawValue: dishTypeText.lowercased())
-        }
+//        // 2. Try to map dishTypeText to a DishType
+//        if let dishTypeText = extraction.dishTypeText {
+//            dishType = DishType(rawValue: dishTypeText.lowercased())
+//        }
         
         // 3. Try to map dietText to a Diet
         if let dietText = extraction.dietText {
@@ -31,6 +31,6 @@ struct TrayRequestMapper {
         }
         
         // 4. Return a ParsedTrayRequest with rawText + the three optional results
-        return ParsedTrayRequest(rawText: rawText, mealTime: mealTime, dishType: dishType, diet: diet)
+        return ParsedTrayRequest(rawText: rawText, mealTime: mealTime, diet: diet)
     }
 }

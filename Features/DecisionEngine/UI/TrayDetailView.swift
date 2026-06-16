@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct TrayDetailView: View {
-    @Binding var tray: Tray // Unsure how to make preview work after this change
+    @Binding var tray: Tray 
     @State private var generatedTray: GeneratedTray?
     @ObservedObject var history: DecisionHistory
     var addTray: (Tray) -> Void

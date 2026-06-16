@@ -64,7 +64,6 @@ struct AIParsingView: View {
             VStack {
                 Text("Raw Text: \(result.rawText)")
                 Text("MealTime: \(result.mealTime?.rawValue ?? "Not Found")")
-                Text("DishType: \(result.dishType?.rawValue ?? "Not Found")")
                 Text("Diet: \(result.diet?.rawValue ?? "Not Found")")
                 HStack {
                     Button("Confirm") { onConfirm(result) }

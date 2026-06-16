@@ -10,6 +10,6 @@ import Foundation
 struct ParsedTrayRequest {
     let rawText: String
     let mealTime: MealTime?
-    let dishType: DishType?
+//    let dishType: DishType?
     let diet: Diet?
 }
