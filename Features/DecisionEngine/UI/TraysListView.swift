@@ -1,8 +1,10 @@
 //
+//  Created by Justin Dayane  Gbadamassi on 12/17/25.
+
 //  TraysListView.swift
 //  Host
 //
-//  Created by Justin Dayane  Gbadamassi on 12/17/25.
+
 //
 
 import SwiftUI
@@ -15,6 +17,7 @@ struct TraysListView: View {
     @State private var showingAIParsing: Bool = false
     @State private var pendingParsedRequest: ParsedTrayRequest? = nil
     
+    @State private var candidateGeneratedTray: GeneratedTray? = nil
     
     var body: some View {
         NavigationStack {
@@ -30,6 +33,7 @@ struct TraysListView: View {
                 } else {
                     traysList
                 }
+                
             }
             .navigationTitle("Trays")
             .toolbar {
@@ -53,20 +57,80 @@ struct TraysListView: View {
                         showingAIParsing = true
                     }
                 }
+                ToolbarItem {
+                    Button("Test", systemImage: "button.programmable") {
+                        candidateGeneratedTray = DefaultTrayGenerator.generate(from: MenuItem.samples, for: Tray(diet: .carbControl, time: .dinner))
+                    }
+                }
             }
             .sheet(isPresented: $showingCreateTray, onDismiss: { pendingParsedRequest = nil }) {
                 CreateTrayView(suggestedDiet: pendingParsedRequest?.diet, suggestedMealTime: pendingParsedRequest?.mealTime, onComplete: addTray)
             }
             .sheet(isPresented: $showingAIParsing) {
                 AIParsingView { aiParsed in
-                    pendingParsedRequest = aiParsed
-                    showingAIParsing = false
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-                        showingCreateTray = true
+                    if let diet = aiParsed.diet, let mealTime = aiParsed.mealTime  {
+                        let tray = Tray(diet: diet, time: mealTime)
+                        let generatedTray = DefaultTrayGenerator.generate(from: MenuItem.samples, for: tray)
+                        showingAIParsing = false
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                            candidateGeneratedTray = generatedTray
+                        }
+                    }
+                    else {
+                        pendingParsedRequest = aiParsed
+                        showingAIParsing = false
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                            showingCreateTray = true
+                        }
                     }
                 }
-                
             }
+            .sheet(item: $candidateGeneratedTray) { generatedTray in
+                ScrollView {
+                    VStack (alignment: .leading, spacing: 8){
+                        Text("Generated Tray")
+                            .font(.title2)
+                        Text(generatedTray.tray.displayName) // includes the diet and the mealTime
+                        Text("Status: \(generatedTray.isComplete ? "Complete" : "Incomplete")")
+                        Divider()
+                        ForEach(generatedTray.tray.items) { item in
+                            MenuItemRow(item: item, isSelected: false, isAllowed: true, onTap: {})
+                        }
+                        Divider()
+                        VStack(alignment: .leading) {
+                            Text("Explanations")
+                                .font(.headline)
+                                .padding(.bottom, 4)
+                            ForEach(generatedTray.traces, id: \.self) { trace in
+                                VStack(alignment: .leading, spacing: 4) {
+                                    Text(trace.category.rawValue.capitalized)
+                                        .fontWeight(.semibold)
+                                    Text(trace.reason)
+                                        .foregroundStyle(.secondary)
+                                }
+                            }
+                        }
+                    }
+                    .padding()
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                    
+                    Spacer()
+                    
+                    HStack {
+                        Button("Use This Tray") {
+                            trays.append(generatedTray.tray)
+                            candidateGeneratedTray = nil
+                        }
+//                        .buttonStyle(.borderedProminent)
+                        
+                        Button("Discard") {
+                            candidateGeneratedTray = nil
+                        }
+//                        .buttonStyle(.borderedButton)
+                    }
+                }
+            }
+            .presentationDetents([.medium, .large])
         }
     }
     
