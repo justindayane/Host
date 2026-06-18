@@ -19,6 +19,7 @@ struct TraysListView: View {
     
     @State private var candidateGeneratedTray: GeneratedTray? = nil
     
+    
     var body: some View {
         NavigationStack {
             Group {

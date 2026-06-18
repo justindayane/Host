@@ -9,8 +9,11 @@ import SwiftUI
 
 struct CreateTrayView: View {
     @State private var selectedDiet: Diet = .regular
-    @State private var selectedMealTime: MealTime = .breakfast
+    @State private var selectedMealTime: MealTime = .lunch
     @State private var useExtraConstraints: Bool = false // Minimal UI to be used for extra constraint
+    
+    var suggestedDiet : Diet?
+    var suggestedMealTime : MealTime?
     
     @Environment(\.dismiss) var dismiss
     var onComplete : (Tray) -> Void
@@ -74,12 +77,21 @@ struct CreateTrayView: View {
                     Button("Cancel") { dismiss() }
                 }
             }
+            .onAppear {
+                if let suggestedDiet = suggestedDiet {
+                    selectedDiet = suggestedDiet
+                }
+                
+                if let suggestedMealTime = suggestedMealTime {
+                    selectedMealTime = suggestedMealTime
+                }
+            }
         }
     }
     
     init(suggestedDiet: Diet? = nil, suggestedMealTime: MealTime? = nil, onComplete: @escaping (Tray) -> Void) {
-        _selectedDiet = State(initialValue: suggestedDiet ?? .regular)
-        _selectedMealTime = State(initialValue: suggestedMealTime ?? .lunch)
+        self.suggestedDiet = suggestedDiet
+        self.suggestedMealTime = suggestedMealTime
         self.onComplete = onComplete
         
     }

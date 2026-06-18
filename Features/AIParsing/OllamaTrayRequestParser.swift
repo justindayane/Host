@@ -15,18 +15,28 @@ struct OllamaTrayRequestParser: TrayRequestParsing {
     func parse(rawText: String) async -> Result<TrayRequestExtraction, Error> {
         // 1. Build the prompt string
         let prompt = """
-        Extract the meal time, dish type, and diet from the following text.
-        Respond only in JSON with exactly these keys: mealTimeText, dishTypeText, dietText.
-        Use null if a field is not mentioned.
+        Extract structured tray request data from the user's text.
 
-        Valid values for mealTimeText: breakfast, lunch, dinner
-        Valid values for dishTypeText: main, side, beverage
-        Valid values for dietText: regular, cardiac, renal, carbControl, carbControlCardiac, fluidRest, fiberRest
-        
-        A low sodium diet should map to cardiac
-        
+        Return only valid JSON with exactly these keys:
+        - mealTimeText
+        - dishTypeText
+        - dietText
+
+        Allowed values:
+        - mealTimeText: breakfast, lunch, dinner
+        - dishTypeText: main, side, beverage
+        - dietText: regular, cardiac, renal, carbControl, carbControlCardiac, fluidRest, fiberRest
+
+        Rules:
+        1. Extract only values that are explicitly stated in the text.
+        2. Do not guess or infer missing values.
+        3. If a field is not clearly mentioned, return null for that field.
+        4. If a field is ambiguous, return null for that field.
+        5. A low sodium diet maps to cardiac only if the text explicitly indicates low sodium.
+        6. Do not use common defaults. For example, if the text says "Make me a cardiac tray" and does not mention breakfast, lunch, or dinner, then mealTimeText must be null.
+        7. Respond with JSON only. No explanation, no markdown, no extra text.
+
         Text: \(rawText)
-
         """
         
         // 2. Build the request body as a dictionary, with:
