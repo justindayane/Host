@@ -58,11 +58,6 @@ struct TraysListView: View {
                         showingAIParsing = true
                     }
                 }
-                ToolbarItem {
-                    Button("Test", systemImage: "button.programmable") {
-                        candidateGeneratedTray = DefaultTrayGenerator.generate(from: MenuItem.samples, for: Tray(diet: .carbControl, time: .dinner))
-                    }
-                }
             }
             .sheet(isPresented: $showingCreateTray, onDismiss: { pendingParsedRequest = nil }) {
                 CreateTrayView(suggestedDiet: pendingParsedRequest?.diet, suggestedMealTime: pendingParsedRequest?.mealTime, onComplete: addTray)
@@ -120,14 +115,15 @@ struct TraysListView: View {
                     HStack {
                         Button("Use This Tray") {
                             trays.append(generatedTray.tray)
+                            history.recordDecision(from: generatedTray.tray, wasDefault: true)
                             candidateGeneratedTray = nil
                         }
-//                        .buttonStyle(.borderedProminent)
+                        .buttonStyle(.borderedProminent)
                         
-                        Button("Discard") {
+                        Button("Discard", role: .destructive) {
                             candidateGeneratedTray = nil
                         }
-//                        .buttonStyle(.borderedButton)
+                        .buttonStyle(.bordered)
                     }
                 }
             }

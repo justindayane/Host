@@ -56,6 +56,7 @@ struct AIParsingView: View {
                 }
             }
             .disabled(isLoading)
+            .buttonStyle(.bordered)
         }
         // 3. If result is not nil, show:
         //    - the rawText
@@ -67,10 +68,12 @@ struct AIParsingView: View {
                 Text("Diet: \(result.diet?.rawValue ?? "Not Found")")
                 HStack {
                     Button("Confirm") { onConfirm(result) }
-                    Button("Dismiss") {
+                        .buttonStyle(.borderedProminent)
+                    Button("Dismiss", role: .destructive) {
                         self.result = nil
                         self.rawText = ""
                     }
+                    .buttonStyle(.bordered)
                 }
             }
         }
