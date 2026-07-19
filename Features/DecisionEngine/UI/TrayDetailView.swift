@@ -75,14 +75,25 @@ struct TrayDetailView: View {
             .navigationTitle(tray.displayName)
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
-                ToolbarItem(placement: .navigationBarTrailing) {
+                ToolbarItem(
+                    placement: .navigationBarTrailing
+                ) {
                     NavigationLink {
-                        ItemSelectionView(tray: tray, allMenuItems: MenuItem.samples) { selectedItemsFromChild in
-                            tray.items.append(contentsOf: selectedItemsFromChild)
-                            history.recordDecision(from: tray, wasDefault: false)
-                        }
+                        ItemSelectionView(
+                            tray: $tray,
+                            allMenuItems: MenuItem.samples,
+                            onDone: {
+                                history.recordDecision(
+                                        from: tray,
+                                        wasDefault: false
+                                    )},
+                            onCancel: { }
+                        )
                     } label: {
-                        Label("Add items", systemImage: "plus")
+                        Label(
+                            "Add items",
+                            systemImage: "plus"
+                        )
                     }
                 }
                 

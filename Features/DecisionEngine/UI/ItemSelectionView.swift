@@ -1,16 +1,19 @@
 //
+//  Created by Justin Dayane  Gbadamassi on 1/4/26.
+
 //  ItemSelectionView.swift
 //  Host
 //
-//  Created by Justin Dayane  Gbadamassi on 1/4/26.
+
 //
 
 import SwiftUI
 
 struct ItemSelectionView: View {
-    let tray: Tray // <- Adding this so that I can maintain the mental model of passing the tray rather than pieces of details
+    @Binding var tray: Tray
     let allMenuItems: [MenuItem]
-    var onComplete: ([MenuItem]) -> Void
+    var onDone: () -> Void
+    var onCancel: () -> Void
     
     @State private var selectedItems: Set<UUID> = []
     @Environment(\.dismiss) var dismiss
@@ -29,7 +32,7 @@ struct ItemSelectionView: View {
         return RulesEngine.evaluate(availableItems, diet: tray.diet, mealTime: tray.mealTime, extraConstraints: tray.extraConstraints)
     }
     
-    // Filtering logic (Reusing)
+    // Filtering logic (Reusing) -- UNUSED ?
     private var filteredMenuItems: [MenuItem] {
         if tray.diet == .regular {
             return allMenuItems
@@ -106,14 +109,15 @@ struct ItemSelectionView: View {
         .toolbar {
             ToolbarItem(placement: .topBarLeading) {
                 Button("Cancel") {
+                    onCancel()
                     dismiss()
                 }
             }
             ToolbarItem(placement: .topBarTrailing) {
                 Button("Done") {
                     let selectedItems = getSelectedItems()
-                    print("sending selected items: \(selectedItems)")
-                    onComplete(selectedItems)
+                    tray.items = selectedItems
+                    onDone()
                     dismiss()
                 }
                 .disabled(selectedItems.isEmpty)
@@ -126,9 +130,7 @@ struct ItemSelectionView: View {
 }
 
 #Preview {
-    ItemSelectionView(tray: Tray(diet: .carbControl, time: .lunch, items: [MenuItem.samples[0]]),
+    ItemSelectionView(tray: .constant(Tray(diet: .carbControl, time: .lunch, items: [MenuItem.samples[0]])),
         allMenuItems: MenuItem.samples,
-        onComplete: {
-            _ in
-        })
+                      onDone: { }, onCancel: { })
 }

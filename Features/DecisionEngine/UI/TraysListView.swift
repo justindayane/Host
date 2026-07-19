@@ -19,6 +19,7 @@ struct TraysListView: View {
     
     @State private var candidateGeneratedTray: GeneratedTray? = nil
     
+    @State private var selectedTray: SelectedTray? = nil
     
     var body: some View {
         NavigationStack {
@@ -60,7 +61,31 @@ struct TraysListView: View {
                 }
             }
             .sheet(isPresented: $showingCreateTray, onDismiss: { pendingParsedRequest = nil }) {
-                CreateTrayView(suggestedDiet: pendingParsedRequest?.diet, suggestedMealTime: pendingParsedRequest?.mealTime, onComplete: addTray)
+                CreateTrayView(suggestedDiet: pendingParsedRequest?.diet, suggestedMealTime: pendingParsedRequest?.mealTime, onComplete: { tray in
+                    trays.append(tray)
+                    selectedTray = SelectedTray(id: tray.id)
+                } )
+            }
+            .sheet(item: $selectedTray) { selected in
+                NavigationStack {
+                    let id = selected.id
+                    if let index = trays.firstIndex(where: { $0.id == id }) {
+                        ItemSelectionView(tray: $trays[index], allMenuItems: MenuItem.samples, onDone: {
+                            if let i = trays.firstIndex(where: { $0.id == id }){
+                                history.recordDecision(from: trays[i], wasDefault: false)
+                            }
+                            selectedTray = nil
+                        }, onCancel: {
+                            if let i = trays.firstIndex(where: { $0.id == id }) {
+                                trays.remove(at: i)
+                            }
+                            selectedTray = nil
+                        })
+                    }
+                    else {
+                        Text("Tray Not Found")
+                    }
+                }
             }
             .sheet(isPresented: $showingAIParsing) {
                 AIParsingView { aiParsed in
@@ -151,8 +176,13 @@ struct TraysListView: View {
     private func addTray(_ tray: Tray) {
         trays.append(tray)
     }
+    
 }
 
+// Small wrapper needed around the selectedTray id so we can drive .sheet(item:) with an Identifiable value
+struct SelectedTray: Identifiable {
+    let id: UUID
+}
 #Preview {
     TraysListView()
 }
