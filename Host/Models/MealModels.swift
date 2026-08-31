@@ -28,8 +28,8 @@ enum Diet: String, Codable, CaseIterable, Identifiable {
     case regular
     case cardiac
     case renal
-    case carbControl
-    case carbControlCardiac
+    case carbControl = "carbcontrol"
+    case carbControlCardiac = "carbcontrolcardiac"
     case fluidRest
     case fiberRest
     
